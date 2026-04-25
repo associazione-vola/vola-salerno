@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { FacebookIcon, InstagramIcon, YoutubeIcon } from './SocialIcons';
+import { FacebookIcon, InstagramIcon } from './SocialIcons';
 
 export default function Contatti() {
   const [form, setForm] = useState({ nome: '', email: '', messaggio: '' });
@@ -175,15 +175,6 @@ export default function Contatti() {
                 >
                   <InstagramIcon size={18} />
                   Instagram
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition-colors text-sm"
-                >
-                  <YoutubeIcon size={18} />
-                  YouTube
                 </a>
               </div>
               <p className="text-gray-500 text-sm mt-4 text-center">

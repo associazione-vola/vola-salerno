@@ -1,93 +1,185 @@
-import { ArrowDown, Heart, Leaf, TreePine } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import { useState } from 'react';
+
+const PRESET_AMOUNTS = [5, 10, 25, 50];
+const PAYPAL_ME = 'https://www.paypal.me/volasalerno'; // placeholder — sostituire con link reale
+const IBAN = 'IT00 X000 0000 0000 0000 0000 000'; // placeholder — sostituire con IBAN reale
+
+type PaymentMethod = 'paypal' | 'bonifico';
 
 export default function Hero() {
+  const [amount, setAmount] = useState<number | ''>(10);
+  const [customAmount, setCustomAmount] = useState('');
+  const [method, setMethod] = useState<PaymentMethod>('paypal');
+  const [showIban, setShowIban] = useState(false);
+
+  const finalAmount = customAmount !== '' ? Number(customAmount) : amount;
+
+  const handleDonate = () => {
+    if (method === 'paypal') {
+      const url = finalAmount ? `${PAYPAL_ME}/${finalAmount}EUR` : PAYPAL_ME;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      setShowIban(true);
+    }
+  };
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #14532d 0%, #166534 30%, #15803d 60%, #4d7c0f 100%)',
-      }}
     >
+      <img
+        src="https://images.unsplash.com/photo-1728065015087-b1fbb15e5480?w=2560&q=95&auto=format&fit=crop"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
       <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(to bottom, rgba(5,15,8,0.52) 0%, rgba(5,20,10,0.72) 100%)' }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center text-white">
-        <div className="flex justify-center gap-4 mb-8">
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <Leaf size={24} className="text-green-200" />
-          </div>
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <Heart size={24} className="text-red-300" />
-          </div>
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <TreePine size={24} className="text-green-200" />
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+        {/* — colonna sinistra — */}
+        <div className="flex-1 text-white text-center lg:text-left">
+          <p className="text-green-300 font-semibold text-sm tracking-widest uppercase mb-5">
+            Associazione di volontariato · Salerno
+          </p>
+          <h1 className="text-7xl sm:text-8xl font-black mb-4 leading-none tracking-tight">
+            VOLA
+          </h1>
+          <p
+            className="text-3xl sm:text-4xl text-white/85 mx-auto lg:mx-0 mb-10"
+            style={{ fontFamily: "'Tangerine', cursive", fontWeight: 700 }}
+          >
+            Volerò sino a quando vivrà l'ultimo albero
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a
+              href="#adozioni"
+              className="bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+            >
+              Adotta un amico
+            </a>
+            <a
+              href="#chi-siamo"
+              className="border border-white/40 text-white px-7 py-3 rounded-full font-bold hover:bg-white/10 transition-all text-sm"
+            >
+              Scopri chi siamo
+            </a>
           </div>
         </div>
 
-        <p className="text-green-200 font-semibold text-lg tracking-widest uppercase mb-4">
-          Volontari per l'Ambiente
-        </p>
+        {/* — colonna destra: form donazione — */}
+        <div
+          className="w-full lg:w-80 xl:w-96 rounded-2xl p-6 flex-shrink-0"
+          style={{
+            background: 'rgba(255,255,255,0.10)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255,255,255,0.20)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+          }}
+        >
+          <p className="text-white/60 text-xs font-semibold tracking-widest uppercase mb-1">Sostienici</p>
+          <h2 className="text-white text-xl font-black mb-5 leading-tight">
+            Ogni donazione<br />salva una vita
+          </h2>
 
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 leading-none">
-          <span className="block">VOLA</span>
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-light text-green-200">
-            Salerno
-          </span>
-        </h1>
+          {/* tabs metodo */}
+          <div className="flex rounded-xl overflow-hidden mb-5" style={{ background: 'rgba(0,0,0,0.20)' }}>
+            {(['paypal', 'bonifico'] as PaymentMethod[]).map((m) => (
+              <button
+                key={m}
+                onClick={() => { setMethod(m); setShowIban(false); }}
+                className={`flex-1 py-2 text-sm font-semibold transition-all ${
+                  method === m
+                    ? 'bg-white/20 text-white'
+                    : 'text-white/50 hover:text-white/80'
+                }`}
+              >
+                {m === 'paypal' ? 'PayPal' : 'Bonifico'}
+              </button>
+            ))}
+          </div>
 
-        <p className="text-xl sm:text-2xl text-green-100 max-w-2xl mx-auto mb-4 leading-relaxed">
-          Proteggiamo l'ambiente e gli animali del territorio salernitano,
-          perché ogni vita merita rispetto.
-        </p>
-        <p className="text-base text-green-200/80 max-w-xl mx-auto mb-12">
-          Dal 2010 al fianco della natura e degli animali abbandonati della Campania.
-          Insieme facciamo la differenza.
-        </p>
+          {/* importi preset */}
+          <p className="text-white/60 text-xs mb-2">Scegli un importo</p>
+          <div className="grid grid-cols-4 gap-2 mb-3">
+            {PRESET_AMOUNTS.map((a) => (
+              <button
+                key={a}
+                onClick={() => { setAmount(a); setCustomAmount(''); }}
+                className={`py-2 rounded-lg text-sm font-bold transition-all ${
+                  amount === a && customAmount === ''
+                    ? 'bg-green-500 text-white'
+                    : 'text-white/70 hover:text-white'
+                }`}
+                style={
+                  amount === a && customAmount === ''
+                    ? {}
+                    : { background: 'rgba(255,255,255,0.10)' }
+                }
+              >
+                €{a}
+              </button>
+            ))}
+          </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#adozioni"
-            className="bg-white text-green-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          {/* importo libero */}
+          <div className="relative mb-5">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 text-sm">€</span>
+            <input
+              type="number"
+              min="1"
+              placeholder="Altro importo"
+              value={customAmount}
+              onChange={(e) => { setCustomAmount(e.target.value); setAmount(''); }}
+              className="w-full pl-7 pr-3 py-2.5 rounded-lg text-sm text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-white/40"
+              style={{ background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.15)' }}
+            />
+          </div>
+
+          {/* state bonifico */}
+          {method === 'bonifico' && showIban ? (
+            <div
+              className="rounded-xl p-4 mb-4 text-sm"
+              style={{ background: 'rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.15)' }}
+            >
+              <p className="text-white/60 text-xs mb-1">IBAN</p>
+              <p className="text-white font-mono font-bold text-xs break-all">{IBAN}</p>
+              <p className="text-white/60 text-xs mt-2">Intestatario: VOLA – Volontari per l'Ambiente</p>
+              {finalAmount ? (
+                <p className="text-white/60 text-xs mt-1">Causale: Donazione VOLA €{finalAmount}</p>
+              ) : null}
+            </div>
+          ) : null}
+
+          <button
+            onClick={handleDonate}
+            className="w-full py-3 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 active:translate-y-0"
+            style={{ background: 'rgba(34,197,94,0.85)', color: '#fff', boxShadow: '0 4px 16px rgba(34,197,94,0.30)' }}
           >
-            Adotta un amico
-          </a>
-          <a
-            href="#chi-siamo"
-            className="border-2 border-white/60 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm"
-          >
-            Scopri chi siamo
-          </a>
-        </div>
+            {method === 'paypal'
+              ? `Dona ${finalAmount ? `€${finalAmount}` : ''} con PayPal`
+              : showIban ? 'Copia IBAN sopra ↑' : 'Mostra IBAN'}
+          </button>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-8 text-green-200">
-          <div className="text-center">
-            <div className="text-3xl font-black text-white">300+</div>
-            <div className="text-sm">Animali salvati</div>
-          </div>
-          <div className="w-px bg-white/20 hidden sm:block" />
-          <div className="text-center">
-            <div className="text-3xl font-black text-white">150+</div>
-            <div className="text-sm">Volontari attivi</div>
-          </div>
-          <div className="w-px bg-white/20 hidden sm:block" />
-          <div className="text-center">
-            <div className="text-3xl font-black text-white">14</div>
-            <div className="text-sm">Anni di impegno</div>
-          </div>
+          <p className="text-white/40 text-xs text-center mt-3">
+            Donazione sicura · Associazione ETS
+          </p>
         </div>
       </div>
 
       <a
         href="#chi-siamo"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 hover:text-white transition-colors animate-bounce"
         aria-label="Scorri verso il basso"
       >
-        <ArrowDown size={32} />
+        <ArrowDown size={26} />
       </a>
     </section>
   );

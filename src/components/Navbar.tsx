@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { Leaf, Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Chi Siamo', href: '#chi-siamo' },
+  { label: '5×1000', href: '#5x1000' },
   { label: 'Storie', href: '#storie' },
-  { label: 'Adozioni', href: '#adozioni' },
-  { label: 'Raccolte Fondi', href: '#raccolta-fondi' },
+  { label: 'Chi Siamo', href: '#chi-siamo' },
   { label: 'Contatti', href: '#contatti' },
 ];
 

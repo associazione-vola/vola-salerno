@@ -1,5 +1,5 @@
 import { Leaf, Mail, MapPin, Phone } from 'lucide-react';
-import { FacebookIcon, InstagramIcon, YoutubeIcon } from './SocialIcons';
+import { FacebookIcon, InstagramIcon } from './SocialIcons';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -26,7 +26,6 @@ export default function Footer() {
               {[
                 { icon: <FacebookIcon size={18} />, href: 'https://facebook.com', label: 'Facebook' },
                 { icon: <InstagramIcon size={18} />, href: 'https://instagram.com', label: 'Instagram' },
-                { icon: <YoutubeIcon size={18} />, href: 'https://youtube.com', label: 'YouTube' },
               ].map(({ icon, href, label }) => (
                 <a
                   key={label}

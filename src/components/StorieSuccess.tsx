@@ -21,7 +21,7 @@ export default function StorieSuccess() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {successStories.map((animal) => (
+          {successStories.slice(-3).reverse().map((animal) => (
             <article
               key={animal.id}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group"
