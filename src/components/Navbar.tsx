@@ -5,6 +5,7 @@ const links = [
   { label: 'Chi Siamo', href: '#chi-siamo' },
   { label: 'Storie', href: '#storie' },
   { label: 'Adozioni', href: '#adozioni' },
+  { label: 'Raccolte Fondi', href: '#raccolta-fondi' },
   { label: 'Contatti', href: '#contatti' },
 ];
 

@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import ChiSiamo from './components/ChiSiamo';
 import StorieSuccess from './components/StorieSuccess';
 import InCercaDiCasa from './components/InCercaDiCasa';
+import RaccoltaFondi from './components/RaccoltaFondi';
 import Contatti from './components/Contatti';
 import Footer from './components/Footer';
 
@@ -15,6 +16,7 @@ function App() {
         <ChiSiamo />
         <StorieSuccess />
         <InCercaDiCasa />
+        <RaccoltaFondi />
         <Contatti />
       </main>
       <Footer />

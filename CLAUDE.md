@@ -85,6 +85,33 @@ npm run preview  # Preview della build
 
 <!-- Compilare qui le attività future -->
 
--
--
--
+### US-1 — Donazione diretta all'associazione
+**Come** visitatore del sito,  
+**voglio** poter donare direttamente a VOLA Salerno,  
+**così che** possa supportare l'associazione senza intermediari esterni.  
+**Ispirazione:** sezioni donazione di WWF, LAV.  
+**Note:** valutare PayPal Giving Fund, Stripe, o bonifico bancario con IBAN visibile.
+
+---
+
+### US-2 — Come utilizziamo i fondi
+**Come** potenziale donatore,  
+**voglio** vedere come VOLA Salerno impiega le donazioni ricevute,  
+**così che** possa donare con fiducia e consapevolezza.  
+**Note:** sezione trasparenza con % o categorie di spesa (cure veterinarie, cibo, strutture, attività).
+
+---
+
+### US-3 — 5×1000
+**Come** visitatore,  
+**voglio** trovare le istruzioni per destinare il 5×1000 a VOLA Salerno,  
+**così che** possa contribuire senza costi aggiuntivi tramite la dichiarazione dei redditi.  
+**Note:** serve codice fiscale dell'associazione ben visibile + guida semplificata ai passi.
+
+---
+
+### US-4 — Donazioni ricorrenti *(priorità bassa / SP elevati)*
+**Come** sostenitore abituale,  
+**voglio** impostare una donazione automatica mensile o annuale,  
+**così che** possa sostenere l'associazione in modo continuativo senza dover donare ogni volta.  
+**Note:** richiede integrazione con provider pagamenti ricorrenti (es. Stripe Subscriptions, PayPal Recurring). Story points elevati — rimandare a fase successiva.
