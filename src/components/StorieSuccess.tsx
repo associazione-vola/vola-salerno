@@ -20,7 +20,7 @@ export default function StorieSuccess() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:[&>*:last-child]:col-span-2 sm:[&>*:last-child]:justify-self-center sm:[&>*:last-child]:max-w-sm md:[&>*:last-child]:col-span-1 md:[&>*:last-child]:justify-self-stretch md:[&>*:last-child]:max-w-none">
           {successStories.slice(-3).reverse().map((animal) => (
             <article
               key={animal.id}
