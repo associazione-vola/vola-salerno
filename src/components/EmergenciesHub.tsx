@@ -5,17 +5,17 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 
 export default function EmergenciesHub() {
   return (
-    <section id="emergenze" className="py-16 bg-orange-50">
+    <section id="emergenze" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             <AlertTriangle size={12} />
             Emergenze e Soccorsi
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
             Hai trovato un animale
-            <span className="text-orange-600 block">in difficoltà?</span>
+            <span className="text-green-700 block">in difficoltà?</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             Mantieni la calma. Segui questi passi nell'ordine giusto per garantire

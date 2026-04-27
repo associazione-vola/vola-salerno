@@ -27,18 +27,8 @@ export default function AdozioniPermanenti() {
   return (
     <section
       id="adozioni"
-      className="py-20 sm:py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #fffbeb 0%, #fff7ed 100%)' }}
+      className="py-20 sm:py-28 relative overflow-hidden bg-white"
     >
-      {/* Decorative radial glows */}
-      <div
-        className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.18) 0%, transparent 70%)' }}
-      />
-      <div
-        className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%)' }}
-      />
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
         {/* Brand icon */}

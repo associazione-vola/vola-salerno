@@ -202,7 +202,7 @@ export default function Hero() {
             {/* Dona Ora — solo mobile */}
             <button
               onClick={() => setModalOpen(true)}
-              className="lg:hidden flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+              className="lg:hidden flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
             >
               <Heart size={16} fill="currentColor" />
               Dona Ora

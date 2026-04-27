@@ -66,7 +66,7 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <span className="font-bold text-green-800 text-lg block leading-none">VOLA</span>
-              <span className="text-xs text-amber-700 font-medium">Salerno</span>
+              <span className="text-xs text-green-600 font-medium">Salerno</span>
             </div>
           </a>
 
@@ -117,7 +117,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors"
+            className="md:hidden p-2 rounded-lg text-white bg-green-600 hover:bg-green-500 transition-colors shadow-sm"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Chiudi menu' : 'Apri menu'}
             aria-expanded={open}

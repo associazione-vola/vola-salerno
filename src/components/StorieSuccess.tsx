@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Heart, Quote, ChevronDown, ExternalLink } from 'lucide-react';
 import { successStories, type SuccessStory } from '../data/success-stories';
 
+
 function StoryCard({ story }: { story: SuccessStory }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -62,10 +63,12 @@ function StoryCard({ story }: { story: SuccessStory }) {
 
 export default function StorieSuccess() {
   return (
-    <section id="storie" className="py-24 bg-amber-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+    <section id="storie" className="py-24 bg-white relative overflow-hidden">
+
+      {/* 3. Contenuto con z-10 per stare sopra lo sfondo */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 relative z-10">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-sm font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             <Heart size={14} />
             Storie a lieto fine
           </span>
@@ -81,7 +84,7 @@ export default function StorieSuccess() {
       </div>
 
       <div
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pl-4 sm:pl-6 lg:pl-8"
+        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pl-4 sm:pl-6 lg:pl-8 relative z-10"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
         role="region"
         aria-label="Galleria storie di adozione a lieto fine"
@@ -92,7 +95,7 @@ export default function StorieSuccess() {
         <div className="flex-shrink-0 w-4 sm:w-6 lg:w-8" aria-hidden="true" />
       </div>
 
-      <div className="text-center mt-10 px-4">
+      <div className="text-center mt-10 px-4 relative z-10">
         <a
           href="#adozioni"
           className="inline-block bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"

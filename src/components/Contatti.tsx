@@ -18,7 +18,7 @@ export default function Contatti() {
   };
 
   return (
-    <section id="contatti" className="py-24 bg-gray-50">
+    <section id="contatti" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
