@@ -1,5 +1,5 @@
 import { ArrowDown, X, Heart } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const PRESET_AMOUNTS = [5, 10, 25, 50];
 const PAYPAL_ME = 'https://www.paypal.me/volasalerno'; // placeholder — sostituire con link reale
@@ -123,6 +123,13 @@ export default function Hero() {
   const [showIban, setShowIban] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
+  useEffect(() => {
+    if (!modalOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setModalOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [modalOpen]);
+
   const finalAmount = customAmount !== '' ? Number(customAmount) : amount;
 
   const handleDonate = () => {
@@ -228,9 +235,12 @@ export default function Hero() {
 
       {/* Modal donazione — solo mobile */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+        <div
+          className="fixed inset-0 z-50 bg-white overflow-y-auto"
+          onClick={() => setModalOpen(false)}
+        >
           <div className="flex min-h-full items-center justify-center p-4">
-            <div className="relative w-full max-w-sm py-10">
+            <div className="relative w-full max-w-sm py-10" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setModalOpen(false)}
                 className="absolute top-0 right-0 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"

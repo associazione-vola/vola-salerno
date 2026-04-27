@@ -1,11 +1,70 @@
-import { Heart, Quote } from 'lucide-react';
-import { successStories } from '../data/animals';
+import { useState } from 'react';
+import { Heart, Quote, ChevronDown, ExternalLink } from 'lucide-react';
+import { successStories, type SuccessStory } from '../data/success-stories';
+
+function StoryCard({ story }: { story: SuccessStory }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <article className="flex-shrink-0 w-72 sm:w-80 snap-start bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group flex flex-col">
+      <div className="relative h-52 overflow-hidden flex-shrink-0">
+        <img
+          src={story.image}
+          alt={`${story.name} — storia di adozione`}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+        <div className="absolute bottom-3 left-4 text-white">
+          <h3 className="font-black text-2xl leading-none">{story.name}</h3>
+          <p className="text-white/80 text-sm">{story.age} · {story.character}</p>
+        </div>
+        <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+          <Heart size={10} fill="currentColor" />
+          Adottato
+        </div>
+      </div>
+
+      <div className="p-5 flex flex-col flex-1">
+        <Quote size={20} className="text-green-600 mb-2 opacity-60 flex-shrink-0" />
+        <p className={`text-gray-600 text-sm leading-relaxed ${expanded ? '' : 'line-clamp-3'}`}>
+          {story.story}
+        </p>
+
+        <div className="mt-4 flex items-center justify-between">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1 text-green-700 font-semibold text-sm hover:text-green-600 transition-colors"
+          >
+            {expanded ? 'Chiudi' : 'Leggi di più'}
+            <ChevronDown
+              size={15}
+              className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {expanded && story.instagramUrl && (
+            <a
+              href={story.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-pink-500 hover:text-pink-600 font-semibold text-sm transition-colors"
+            >
+              Vedi su Instagram
+              <ExternalLink size={13} />
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function StorieSuccess() {
   return (
     <section id="storie" className="py-24 bg-amber-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="text-center">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-sm font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             <Heart size={14} />
             Storie a lieto fine
@@ -15,55 +74,31 @@ export default function StorieSuccess() {
             <span className="text-green-700 block">insieme</span>
           </h2>
           <p className="text-gray-600 text-xl max-w-2xl mx-auto leading-relaxed">
-            Ogni animale salvato è una vittoria. Queste sono alcune delle storie che ci danno
-            la forza di andare avanti ogni giorno.
+            Ogni animale salvato è una vittoria. Scorri per scoprire tutte le storie che ci
+            danno la forza di andare avanti ogni giorno.
           </p>
         </div>
+      </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:[&>*:last-child]:col-span-2 sm:[&>*:last-child]:justify-self-center sm:[&>*:last-child]:max-w-sm md:[&>*:last-child]:col-span-1 md:[&>*:last-child]:justify-self-stretch md:[&>*:last-child]:max-w-none">
-          {successStories.slice(-3).reverse().map((animal) => (
-            <article
-              key={animal.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={animal.image}
-                  alt={animal.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-3 left-4 text-white">
-                  <h3 className="font-black text-2xl leading-none">{animal.name}</h3>
-                  <p className="text-white/80 text-sm">{animal.age} · {animal.character}</p>
-                </div>
-                <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
-                  <Heart size={10} fill="currentColor" />
-                  Adottato
-                </div>
-              </div>
-              <div className="p-5">
-                <Quote size={20} className="text-green-600 mb-2 opacity-60" />
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-4">
-                  {animal.story}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+      <div
+        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pl-4 sm:pl-6 lg:pl-8"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
+        role="region"
+        aria-label="Galleria storie di adozione a lieto fine"
+      >
+        {successStories.map((story) => (
+          <StoryCard key={story.id} story={story} />
+        ))}
+        <div className="flex-shrink-0 w-4 sm:w-6 lg:w-8" aria-hidden="true" />
+      </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-500 text-lg">
-            E tante altre storie ancora da scrivere...
-          </p>
-          <a
-            href="#adozioni"
-            className="inline-block mt-4 bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
-          >
-            Aiuta il prossimo animale
-          </a>
-        </div>
+      <div className="text-center mt-10 px-4">
+        <a
+          href="#adozioni"
+          className="inline-block bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
+        >
+          Aiuta il prossimo animale
+        </a>
       </div>
     </section>
   );

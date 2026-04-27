@@ -30,3 +30,7 @@ dist-ssr
 
 # Claude
 .claude/
+CLAUDE.md
+
+# Playwright test artifacts
+.playwright-mcp/

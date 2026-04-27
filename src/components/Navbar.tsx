@@ -5,6 +5,7 @@ const links = [
   { label: '5×1000', href: '#5x1000' },
   { label: 'Storie', href: '#storie' },
   { label: 'Chi Siamo', href: '#chi-siamo' },
+  { label: 'Emergenze', href: '#emergenze' },
   { label: 'Contatti', href: '#contatti' },
 ];
 
