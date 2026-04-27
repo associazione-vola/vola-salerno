@@ -1,6 +1,4 @@
-import { Heart, MessageCircle } from 'lucide-react';
-
-const Instagram = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+const Instagram = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -19,72 +17,96 @@ const Instagram = ({ size = 24, className = "" }: { size?: number, className?: s
   </svg>
 );
 
+const features = [
+  '200+ adozioni riuscite',
+  'Aggiornamenti quotidiani',
+  'Community attiva',
+];
+
 export default function AdozioniPermanenti() {
-  // 3 foto rappresentative fisse (non scadono mai)
-  const gridPhotos = [
-    "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&q=80", // Cane sorridente
-    "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80", // Gatto
-    "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&q=80", // Cane adulto
-  ];
-
   return (
-    <section id="adozioni" className="py-24 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-6">
+    <section
+      id="adozioni"
+      className="py-20 sm:py-28 relative overflow-hidden"
+      style={{ background: 'linear-gradient(160deg, #fffbeb 0%, #fff7ed 100%)' }}
+    >
+      {/* Decorative radial glows */}
+      <div
+        className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.18) 0%, transparent 70%)' }}
+      />
+      <div
+        className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%)' }}
+      />
 
-        {/* Intestazione */}
-        <div className="text-center mb-12">
-          <Instagram size={40} className="mx-auto text-pink-600 mb-4" />
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-            Chi cerca casa oggi?
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Aggiorniamo le nostre adozioni quotidianamente su Instagram. Unisciti alla nostra community per scoprire i cuccioli che hanno bisogno di te.
-          </p>
+      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+        {/* Brand icon */}
+        <div className="mb-8 flex justify-center">
+          <div
+            className="w-16 h-16 rounded-[20px] flex items-center justify-center shadow-lg"
+            style={{
+              background: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 55%, #ec4899 100%)',
+              boxShadow: '0 8px 32px rgba(249,115,22,0.30)',
+            }}
+          >
+            <Instagram size={30} className="text-white" />
+          </div>
         </div>
 
-        {/* LA GRIGLIA "FINTO WIDGET" (Permanente) */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10 sm:[&>*:last-child]:col-span-2 sm:[&>*:last-child]:justify-self-center sm:[&>*:last-child]:max-w-xs md:[&>*:last-child]:col-span-1 md:[&>*:last-child]:justify-self-stretch md:[&>*:last-child]:max-w-none">
-          {gridPhotos.map((photo, index) => (
-            <a
-              key={index}
-              href="https://www.instagram.com/vola_volontariambiente?igsh=MW5uNWNkdnd6cHVkYg=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative aspect-square overflow-hidden group cursor-pointer bg-gray-200 rounded-xl"
-            >
-              {/* L'immagine statica */}
-              <img
-                src={photo}
-                alt="Animale in cerca di adozione"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+        <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-5 leading-tight">
+          Chi cerca casa
+          <span
+            className="block"
+            style={{
+              background: 'linear-gradient(90deg, #f97316 0%, #ec4899 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            oggi?
+          </span>
+        </h2>
 
-              {/* L'overlay scuro che appare quando ci passi sopra col mouse (Stile Instagram) */}
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6 text-white">
-                <div className="flex items-center gap-2 font-bold">
-                  <Heart fill="currentColor" size={24} />
-                </div>
-                <div className="flex items-center gap-2 font-bold">
-                  <MessageCircle fill="currentColor" size={24} />
-                </div>
-              </div>
-            </a>
+        <p className="text-base sm:text-lg text-gray-600 max-w-xl mx-auto mb-10 leading-relaxed">
+          Aggiorniamo le nostre adozioni quotidianamente su Instagram. Unisciti alla nostra
+          community per scoprire i cuccioli che hanno bisogno di te.
+        </p>
+
+        {/* Feature pills */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {features.map((feat) => (
+            <span
+              key={feat}
+              className="px-4 py-2 rounded-full text-sm font-medium text-gray-700"
+              style={{
+                background: 'rgba(255,255,255,0.75)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(0,0,0,0.07)',
+              }}
+            >
+              {feat}
+            </span>
           ))}
         </div>
 
-        {/* Call to Action chiara */}
-        <div className="text-center">
-          <a
-            href="https://www.instagram.com/vola_volontariambiente?igsh=MW5uNWNkdnd6cHVkYg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all hover:-translate-y-1"
-          >
-            <Instagram size={20} />
-            Vai al nostro profilo Instagram
-          </a>
-        </div>
-
+        {/* CTA */}
+        <a
+          href="https://www.instagram.com/vola_volontariambiente?igsh=MW5uNWNkdnd6cHVkYg=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 transition-all duration-300"
+          style={{
+            background: 'linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ec4899 100%)',
+            boxShadow: '0 4px 24px rgba(249,115,22,0.30)',
+          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 8px 36px rgba(249,115,22,0.45)'; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 4px 24px rgba(249,115,22,0.30)'; }}
+        >
+          <Instagram size={22} />
+          Vai al nostro profilo Instagram
+        </a>
       </div>
     </section>
   );

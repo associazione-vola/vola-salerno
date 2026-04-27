@@ -5,8 +5,14 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-green-900 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-green-900 text-white relative">
+      {/* Wave bridge: Contatti (gray-50 #f9fafb) → Footer (green-900) */}
+      <div className="absolute top-0 left-0 right-0 leading-none pointer-events-none" style={{ height: '60px' }}>
+        <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path d="M0,60 Q600,0 1200,60 L1200,0 L0,0 Z" fill="#f9fafb" />
+        </svg>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">

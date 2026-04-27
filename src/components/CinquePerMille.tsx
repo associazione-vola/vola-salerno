@@ -29,7 +29,7 @@ export default function CinquePerMille() {
         >
           <path 
             d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" 
-            fill="#fffbeb" 
+            fill="#ffffff"
           />
         </svg>
       </div>
