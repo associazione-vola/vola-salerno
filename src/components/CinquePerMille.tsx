@@ -1,4 +1,4 @@
-const CF_PLACEHOLDER = 'XX XXX XX XXXXX'; // ← sostituire con codice fiscale reale
+const CF_PLACEHOLDER = '95199730656';
 
 const steps = [
   { n: '1', text: 'Fai la dichiarazione dei redditi (730, Unico o CU)' },
