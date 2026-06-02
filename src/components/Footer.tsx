@@ -30,8 +30,8 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-6">
               {[
-                { icon: <FacebookIcon size={18} />, href: 'https://facebook.com', label: 'Facebook' },
-                { icon: <InstagramIcon size={18} />, href: 'https://instagram.com', label: 'Instagram' },
+                { icon: <FacebookIcon size={18} />, href: 'https://www.facebook.com/share/1aW6P36ibh/', label: 'Facebook' },
+                { icon: <InstagramIcon size={18} />, href: 'https://www.instagram.com/vola_volontariambiente', label: 'Instagram' },
               ].map(({ icon, href, label }) => (
                 <a
                   key={label}
@@ -78,14 +78,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-green-400 flex-shrink-0" />
-                <a href="mailto:info@vola-salerno.it" className="hover:text-white transition-colors">
-                  info@vola-salerno.it
+                <a href="mailto:associazionevola.salerno1@gmail.com" className="hover:text-white transition-colors">
+                  associazionevola.salerno1@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+390892345678" className="hover:text-white transition-colors">
-                  089 234 5678
+                <a href="tel:+393669129650" className="hover:text-white transition-colors">
+                  366 912 9650
                 </a>
               </li>
             </ul>
