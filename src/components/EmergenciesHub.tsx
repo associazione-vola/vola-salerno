@@ -1,4 +1,4 @@
-import { AlertTriangle, Clock } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 export default function EmergenciesHub() {
   return (
@@ -6,10 +6,6 @@ export default function EmergenciesHub() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-            <AlertTriangle size={12} />
-            Emergenze e Soccorsi
-          </span>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
             Hai trovato un animale
             <span className="text-green-700 block">in difficoltà?</span>
@@ -33,7 +29,6 @@ export default function EmergenciesHub() {
               <ol className="space-y-3">
                 {[
                   'Non spostare l\'animale se gravemente ferito — rischio di aggravamento o morso difensivo.',
-                  'Scatta una foto geolocalizzata.',
                   'Se in strada e in pericolo di traffico, avvisa la Polizia Municipale.',
                   'Per ferite gravi, chiama subito la ASL Veterinaria.',
                   'Contatta VOLA tramite i nostri social per supporto e coordinamento.',

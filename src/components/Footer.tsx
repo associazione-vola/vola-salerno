@@ -1,5 +1,5 @@
 import { Leaf, Mail, MapPin, Phone } from 'lucide-react';
-import { FacebookIcon, InstagramIcon } from './SocialIcons';
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -26,12 +26,13 @@ export default function Footer() {
             </div>
             <p className="text-green-200 text-sm leading-relaxed max-w-sm">
               Associazione di volontariato per la tutela dell'ambiente e degli animali del territorio
-              salernitano. Iscritta al Registro del Terzo Settore.
+              salernitano.
             </p>
             <div className="flex gap-3 mt-6">
               {[
                 { icon: <FacebookIcon size={18} />, href: 'https://www.facebook.com/share/1aW6P36ibh/', label: 'Facebook' },
                 { icon: <InstagramIcon size={18} />, href: 'https://www.instagram.com/vola_volontariambiente', label: 'Instagram' },
+                { icon: <WhatsAppIcon size={18} />, href: 'https://whatsapp.com/channel/0029VatJw7J7tkj7q2uS5N2R', label: 'WhatsApp' },
               ].map(({ icon, href, label }) => (
                 <a
                   key={label}
@@ -74,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-green-200">
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="text-green-400 mt-0.5 flex-shrink-0" />
-                Via Irno, 45 – 84135 Salerno SA
+                Via Salvador Allende, 161 A – Salerno
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-green-400 flex-shrink-0" />
@@ -84,8 +85,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+393669129650" className="hover:text-white transition-colors">
-                  366 912 9650
+                <a href="tel:+393514929152" className="hover:text-white transition-colors">
+                  351 492 9152
                 </a>
               </li>
             </ul>

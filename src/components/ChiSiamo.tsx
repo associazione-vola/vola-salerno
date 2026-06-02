@@ -13,19 +13,24 @@ const chartData = [
 
 const quotes = [
   {
-    text: 'Un esempio luminoso di dedizione civica. I volontari di VOLA hanno trasformato il volto del litorale, restituendo dignità alle nostre spiagge.',
-    source: 'La Città di Salerno',
-    date: 'Ottobre 2023',
+    text: "L'Associazione persegue lo scopo di promuovere e sviluppare la sensibilità verso i temi ambientali e verso il rispetto degli animali, rivolgendosi a tutte le fasce d'età ma, soprattutto, ai bambini e ai giovani.",
+    source: 'Le Cronache',
+    date: '2024',
   },
   {
-    text: "L'impegno di VOLA per la tutela degli animali randagi è una risorsa costante e inestimabile per tutta la nostra comunità cittadina.",
-    source: 'Il Mattino',
-    date: 'Marzo 2024',
+    text: "Noi del VOLA crediamo fortemente che l'attività dimostrativa degli addestratori e dei veterinari e l'apertura delle visite alle Oasi aiutino le persone a sviluppare sensibilità e rispetto verso gli animali.",
+    source: 'Ulisse Online',
+    date: '2024',
   },
   {
-    text: "Da oltre dieci anni in prima linea per l'ambiente: la storia di un'associazione salernitana che non si arrende mai di fronte alle difficoltà.",
-    source: 'SalernoToday',
-    date: 'Gennaio 2024',
+    text: "A dimostrazione che l'impegno, la caparbietà, la determinazione spesi nel richiamare l'attenzione della politica locale verso i temi dei gatti liberi a volte vengono premiati! La Giunta Comunale di Salerno ha espresso la volontà di realizzare un Rifugio-Gattile comunale.",
+    source: 'Il sogno di un rifugio felino',
+    date: 'Dicembre 2025',
+  },
+  {
+    text: "L'Associazione VOLA continuerà ad impegnarsi in questo progetto per arrivare quanto prima alla sua piena realizzazione, anche per onorare la memoria di Eleonora Melfi che ha fortemente creduto in questo sogno.",
+    source: 'FINALMENTE – Rifugio Felino',
+    date: 'Dicembre 2025',
   },
 ];
 
@@ -120,27 +125,13 @@ export default function ChiSiamo() {
           {/* Left: Missione */}
           <div>
             <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
-              Dal 2010 a Salerno
+              Organizzazione no-profit
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-5 leading-tight">
-              La nostra
-              <span className="text-green-700 block">missione</span>
-            </h2>
-            <div className="space-y-3 text-gray-600 text-base leading-relaxed">
-              <p>
-                VOLA nasce nel 2010 da un gruppo di cittadini salernitani convinti che il rispetto per
-                l'ambiente e per gli animali non siano opzionali, ma fondamentali per una comunità sana.
-              </p>
-              <p>
-                Operiamo lungo tutta la costa del Golfo di Salerno, nelle aree interne del Cilento e
-                nell'entroterra campano, con un'attenzione particolare alla biodiversità marina e alle
-                specie selvatiche in difficoltà.
-              </p>
-              <p>
-                Ogni weekend i nostri volontari sono in strada: nelle pinete di Pontecagnano, sulle
-                spiagge di Paestum, nei vicoli del centro storico di Salerno.
-              </p>
-            </div>
+            <p className="text-gray-600 text-base leading-relaxed">
+              <span className="font-semibold text-gray-800">Volontari per l'Ambiente ODV – Delegazione Regione Campania.</span>{' '}
+              Ci occupiamo della tutela degli animali allo scopo di difendere, proteggere e valorizzare
+              l'ambiente del territorio Salernitano.
+            </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#contatti"

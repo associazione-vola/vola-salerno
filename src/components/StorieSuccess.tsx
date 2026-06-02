@@ -68,10 +68,6 @@ export default function StorieSuccess() {
       {/* 3. Contenuto con z-10 per stare sopra lo sfondo */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 relative z-10">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-            <Heart size={14} />
-            Storie a lieto fine
-          </span>
           <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4 leading-tight">
             Ce l'abbiamo fatta
             <span className="text-green-700 block">insieme</span>

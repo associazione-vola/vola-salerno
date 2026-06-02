@@ -2,8 +2,7 @@ import { ArrowDown, X, Heart } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const PRESET_AMOUNTS = [5, 10, 25, 50];
-const PAYPAL_ME = 'https://www.paypal.me/volasalerno'; // placeholder — sostituire con link reale
-const IBAN = 'IT00 X000 0000 0000 0000 0000 000'; // placeholder — sostituire con IBAN reale
+const IBAN = 'IT74 E062 3015 2000 0003 1403 747';
 
 // Placeholder — sostituire con foto portrait reale dell'associazione
 const IMG_PORTRAIT =
@@ -11,17 +10,13 @@ const IMG_PORTRAIT =
 const IMG_LANDSCAPE =
   'https://images.unsplash.com/photo-1728065015087-b1fbb15e5480?w=2560&q=95&auto=format&fit=crop';
 
-type PaymentMethod = 'paypal' | 'bonifico';
-
 interface FormProps {
   amount: number | '';
   setAmount: (a: number | '') => void;
   customAmount: string;
   setCustomAmount: (v: string) => void;
-  method: PaymentMethod;
-  setMethod: (m: PaymentMethod) => void;
   showIban: boolean;
-  setShowIban: (v: boolean) => void;
+  copied: boolean;
   finalAmount: number | '';
   onDonate: () => void;
 }
@@ -29,8 +24,7 @@ interface FormProps {
 function DonationForm({
   amount, setAmount,
   customAmount, setCustomAmount,
-  method, setMethod,
-  showIban, setShowIban,
+  showIban, copied,
   finalAmount, onDonate,
 }: FormProps) {
   return (
@@ -39,20 +33,6 @@ function DonationForm({
       <h2 className="text-white text-xl font-black mb-5 leading-tight">
         Ogni donazione<br />salva una vita
       </h2>
-
-      <div className="flex rounded-xl overflow-hidden mb-5" style={{ background: 'rgba(0,0,0,0.20)' }}>
-        {(['paypal', 'bonifico'] as PaymentMethod[]).map((m) => (
-          <button
-            key={m}
-            onClick={() => { setMethod(m); setShowIban(false); }}
-            className={`flex-1 py-2 text-sm font-semibold transition-all ${
-              method === m ? 'bg-white/20 text-white' : 'text-white/50 hover:text-white/80'
-            }`}
-          >
-            {m === 'paypal' ? 'PayPal' : 'Bonifico'}
-          </button>
-        ))}
-      </div>
 
       <p className="text-white/60 text-xs mb-2">Scegli un importo</p>
       <div className="grid grid-cols-4 gap-2 mb-3">
@@ -85,7 +65,7 @@ function DonationForm({
         />
       </div>
 
-      {method === 'bonifico' && showIban ? (
+      {showIban ? (
         <div
           className="rounded-xl p-4 mb-4 text-sm"
           style={{ background: 'rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.15)' }}
@@ -102,11 +82,9 @@ function DonationForm({
       <button
         onClick={onDonate}
         className="w-full py-3 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 active:translate-y-0"
-        style={{ background: 'rgba(34,197,94,0.85)', color: '#fff', boxShadow: '0 4px 16px rgba(34,197,94,0.30)' }}
+        style={{ background: copied ? 'rgba(34,197,94,1)' : 'rgba(34,197,94,0.85)', color: '#fff', boxShadow: '0 4px 16px rgba(34,197,94,0.30)' }}
       >
-        {method === 'paypal'
-          ? `Dona ${finalAmount ? `€${finalAmount}` : ''} con PayPal`
-          : showIban ? 'Copia IBAN sopra ↑' : 'Mostra IBAN'}
+        {copied ? 'IBAN copiato ✓' : showIban ? 'Copia IBAN' : 'Mostra IBAN'}
       </button>
 
       <p className="text-white/40 text-xs text-center mt-3">
@@ -119,8 +97,8 @@ function DonationForm({
 export default function Hero() {
   const [amount, setAmount] = useState<number | ''>(10);
   const [customAmount, setCustomAmount] = useState('');
-  const [method, setMethod] = useState<PaymentMethod>('paypal');
   const [showIban, setShowIban] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -133,19 +111,20 @@ export default function Hero() {
   const finalAmount = customAmount !== '' ? Number(customAmount) : amount;
 
   const handleDonate = () => {
-    if (method === 'paypal') {
-      const url = finalAmount ? `${PAYPAL_ME}/${finalAmount}EUR` : PAYPAL_ME;
-      window.open(url, '_blank', 'noopener,noreferrer');
-    } else {
+    if (!showIban) {
       setShowIban(true);
+    } else {
+      navigator.clipboard.writeText(IBAN).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
     }
   };
 
   const formProps: FormProps = {
     amount, setAmount,
     customAmount, setCustomAmount,
-    method, setMethod,
-    showIban, setShowIban,
+    showIban, copied,
     finalAmount,
     onDonate: handleDonate,
   };
