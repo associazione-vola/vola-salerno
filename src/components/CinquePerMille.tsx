@@ -10,7 +10,7 @@ export default function CinquePerMille() {
   return (
     <section
       id="5x1000"
-      className="pt-20 pb-48 relative"
+      className="pt-20 pb-48 relative -mt-px"
       style={{ background: '#0f1f0f' }}
     >
       {/* FADE TOP: Sale di 128px (-top-32) sopra la Hero sfumando dalla trasparenza al nero-verde */}
