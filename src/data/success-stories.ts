@@ -11,12 +11,12 @@ export interface SuccessStory {
 export const successStories: SuccessStory[] = [
   {
     id: 1,
-    name: 'Luna',
-    age: '3 anni',
-    character: 'Dolce e affettuosa',
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=600&q=80&auto=format&fit=crop',
+    name: 'Shila',
+    age: '4 anni',
+    character: 'Bracco Tedesco da caccia',
+    image: '/animali/shila.webp',
     story:
-      'Luna è stata trovata abbandonata sul lungomare di Salerno con una zampa ferita. Dopo mesi di cure amorevoli, oggi vive felice con la famiglia Esposito e corre libera nei campi di Pontecagnano.',
+      'Shila, Bracco Tedesco di 4 anni, è un cane da caccia. Un giorno, durante una spedizione, viene investita da un furgone, che la rende paralitica. Non volendole fare l\'eutanasia, grazie all\'aiuto dei nostri volontari e a varie raccolte fondi, Shila oggi si è ripresa, con il suo carrellino che l\'aiuta a camminare, la fisioterapia, e tanto amore.',
     // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {

@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const CIRC = 100;
 
 const chartData = [
-  { label: 'Attività di programma',        value: 75, color: '#4ade80' },
-  { label: 'Attività di raccolta fondi',    value: 18, color: '#fb923c' },
-  { label: 'Altri oneri',                   value: 5,  color: '#fbbf24' },
-  { label: 'Attività di supporto generale', value: 2,  color: '#94a3b8' },
+  { label: 'Interventi di salvataggio cani e gatti',      value: 60, color: '#4ade80' },
+  { label: 'Segnalazioni PEC alle autorità competenti',   value: 22, color: '#60a5fa' },
+  { label: 'Raccolte fondi',                              value: 13, color: '#fb923c' },
+  { label: 'Altri oneri',                                 value: 5,  color: '#fbbf24' },
 ];
 
 const quotes = [
@@ -120,19 +120,22 @@ export default function ChiSiamo() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Mission + Chart */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:items-center">
 
           {/* Left: Missione */}
           <div>
-            <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+            <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
               Organizzazione no-profit
             </span>
-            <p className="text-gray-600 text-base leading-relaxed">
-              <span className="font-semibold text-gray-800">Volontari per l'Ambiente ODV – Delegazione Regione Campania.</span>{' '}
+            <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 leading-snug">
+              Volontari per l'Ambiente ODV
+              <span className="block text-green-700 text-xl sm:text-2xl font-semibold mt-1">Delegazione Regione Campania</span>
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
               Ci occupiamo della tutela degli animali allo scopo di difendere, proteggere e valorizzare
               l'ambiente del territorio Salernitano.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="#contatti"
                 className="bg-green-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-600 transition-colors text-sm"
@@ -151,7 +154,7 @@ export default function ChiSiamo() {
           {/* Right: Donut Chart — deep forest green card */}
           <div
             ref={chartRef}
-            className="rounded-2xl p-7 sm:p-8 text-white shadow-xl lg:mt-[198px]"
+            className="rounded-2xl p-7 sm:p-8 text-white shadow-xl"
             style={{ backgroundColor: '#0d2118' }}
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-6 text-white">
