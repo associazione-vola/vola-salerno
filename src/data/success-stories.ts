@@ -1,7 +1,7 @@
 export interface SuccessStory {
   id: number;
   name: string;
-  age: string;
+  gender: 'M' | 'F';
   character: string;
   image: string;
   story: string;
@@ -12,8 +12,8 @@ export const successStories: SuccessStory[] = [
   {
     id: 1,
     name: 'Shila',
-    age: '4 anni',
-    character: 'Bracco Tedesco da caccia',
+    gender: 'F',
+    character: 'L\'amore in carrozzina',
     image: '/animali/shila.webp',
     story:
       'Shila, Bracco Tedesco di 4 anni, è un cane da caccia. Un giorno, durante una spedizione, viene investita da un furgone, che la rende paralitica. Non volendole fare l\'eutanasia, grazie all\'aiuto dei nostri volontari e a varie raccolte fondi, Shila oggi si è ripresa, con il suo carrellino che l\'aiuta a camminare, la fisioterapia, e tanto amore.',
@@ -21,28 +21,28 @@ export const successStories: SuccessStory[] = [
   },
   {
     id: 2,
-    name: 'Ciuffo',
-    age: '1 anno',
-    character: 'Energico e socievole',
-    image: 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=800&h=600&q=80&auto=format&fit=crop',
+    name: 'Akela',
+    gender: 'M',
+    character: 'Forza e dolcezza insieme',
+    image: '/animali/akela.webp',
     story:
-      'Ciuffo è stato soccorso da un vicolo buio di Pastena. Oggi è il cane da terapia di una RSA salernitana, dove porta gioia a decine di anziani ogni giorno.',
-    // instagramUrl: 'https://www.instagram.com/p/...',
+      'Akela è un cagnolino che è rimasto paralizzato in seguito a un incidente. La famiglia che lo aveva adottato ha deciso di non tenerlo, e il Vola è intervenuto. Akela ha fatto numerose visite e, grazie all\'aiuto ottenuto tramite le raccolte fondi, è stato possibile vedere in lui un piccolo miglioramento. Il veterinario che lo ha seguito in clinica non è più riuscito a separarsene e lo ha adottato, permettendogli di ricevere amore e le migliori cure.',
+    instagramUrl: 'https://www.instagram.com/p/DVjcynHDt-l/',
   },
   {
     id: 3,
-    name: 'Rossella',
-    age: '4 anni',
-    character: 'Mite e riflessiva',
-    image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800&h=600&q=80&auto=format&fit=crop',
+    name: 'Asia',
+    gender: 'F',
+    character: 'Coraggio in miniatura',
+    image: '/animali/asia.webp',
     story:
-      "Trovata intrappolata in una rete da pesca sul litorale di Eboli, Rossella è stata curata per settimane. La famiglia Ferraro l'ha adottata e ora vive a due passi dal mare che l'aveva quasi inghiottita.",
+      'Asia è stata vittima di un grave incidente che le aveva spostato gli organi nel diaframma, compromettendo la sua respirazione. Accolta da una famiglia tramite la nostra associazione, ha affrontato un delicatissimo intervento chirurgico. Grazie alle cure costanti, all\'amore incondizionato dei suoi adottanti e al legame speciale nato con Carlotta (una delle gatte di casa che le ha fatto da mamma), Asia è riuscita a superare i momenti critici, vivendo felice, amata e al sicuro.',
     // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
     id: 4,
     name: 'Briciola',
-    age: '2 anni',
+    gender: 'F',
     character: 'Timida ma curiosa',
     image: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -52,7 +52,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 5,
     name: 'Argo',
-    age: '5 anni',
+    gender: 'M',
     character: 'Fedele e protettivo',
     image: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -62,7 +62,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 6,
     name: 'Miele',
-    age: '8 mesi',
+    gender: 'F',
     character: 'Vivace e affettuosa',
     image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -72,7 +72,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 7,
     name: 'Febo',
-    age: '3 anni',
+    gender: 'M',
     character: 'Calmo e intelligente',
     image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -82,7 +82,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 8,
     name: 'Perla',
-    age: '6 anni',
+    gender: 'F',
     character: 'Pacata e saggia',
     image: 'https://images.unsplash.com/photo-1472491235688-bdc81a63246e?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -92,7 +92,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 9,
     name: 'Zeus',
-    age: '2 anni',
+    gender: 'M',
     character: 'Esuberante e giocoso',
     image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&h=600&q=80&auto=format&fit=crop',
     story:
@@ -102,7 +102,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 10,
     name: 'Stella',
-    age: '1 anno',
+    gender: 'F',
     character: 'Dolce e sensibile',
     image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&q=80&auto=format&fit=crop',
     story:

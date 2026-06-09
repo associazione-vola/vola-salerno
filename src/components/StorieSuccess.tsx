@@ -18,11 +18,11 @@ function StoryCard({ story }: { story: SuccessStory }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
         <div className="absolute bottom-3 left-4 text-white">
           <h3 className="font-black text-2xl leading-none">{story.name}</h3>
-          <p className="text-white/80 text-sm">{story.age} · {story.character}</p>
+          {story.character && <p className="text-white/80 text-sm">{story.character}</p>}
         </div>
         <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
           <Heart size={10} fill="currentColor" />
-          Adottato
+          {story.gender === 'F' ? 'Adottata' : 'Adottato'}
         </div>
       </div>
 
@@ -44,7 +44,7 @@ function StoryCard({ story }: { story: SuccessStory }) {
             />
           </button>
 
-          {expanded && story.instagramUrl && (
+          {story.instagramUrl && (
             <a
               href={story.instagramUrl}
               target="_blank"
@@ -80,7 +80,7 @@ export default function StorieSuccess() {
       </div>
 
       <div
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pl-4 sm:pl-6 lg:pl-8 relative z-10"
+        className="flex items-start gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pl-4 sm:pl-6 lg:pl-8 relative z-10"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
         role="region"
         aria-label="Galleria storie di adozione a lieto fine"
