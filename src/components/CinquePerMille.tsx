@@ -1,4 +1,4 @@
-const CF_PLACEHOLDER = 'XX XXX XX XXXXX'; // ← sostituire con codice fiscale reale
+const CF_PLACEHOLDER = '95199730656';
 
 const steps = [
   { n: '1', text: 'Fai la dichiarazione dei redditi (730, Unico o CU)' },
@@ -10,7 +10,7 @@ export default function CinquePerMille() {
   return (
     <section
       id="5x1000"
-      className="pt-20 pb-48 relative"
+      className="pt-20 pb-48 relative -mt-px"
       style={{ background: '#0f1f0f' }}
     >
       {/* FADE TOP: Sale di 128px (-top-32) sopra la Hero sfumando dalla trasparenza al nero-verde */}
@@ -29,7 +29,7 @@ export default function CinquePerMille() {
         >
           <path 
             d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" 
-            fill="#fffbeb" 
+            fill="#ffffff"
           />
         </svg>
       </div>
