@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Heart, Quote, ChevronDown, ExternalLink } from 'lucide-react';
 import { successStories, type SuccessStory } from '../data/success-stories';
 
@@ -62,6 +62,15 @@ function StoryCard({ story }: { story: SuccessStory }) {
 }
 
 export default function StorieSuccess() {
+  const shuffled = useMemo(() => {
+    const arr = [...successStories];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, []);
+
   return (
     <section id="storie" className="py-24 bg-white relative overflow-hidden">
 
@@ -85,7 +94,7 @@ export default function StorieSuccess() {
         role="region"
         aria-label="Galleria storie di adozione a lieto fine"
       >
-        {successStories.map((story) => (
+        {shuffled.map((story) => (
           <StoryCard key={story.id} story={story} />
         ))}
         <div className="flex-shrink-0 w-4 sm:w-6 lg:w-8" aria-hidden="true" />
