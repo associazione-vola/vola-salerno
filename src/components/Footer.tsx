@@ -1,4 +1,4 @@
-import { Leaf, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
 
 export default function Footer() {
@@ -16,9 +16,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                <Leaf size={20} className="text-green-300" />
-              </div>
+              <img src="/logo.svg" alt="VOLA logo" className="w-12 h-12 object-contain" />
               <div>
                 <span className="font-black text-xl block leading-none">VOLA</span>
                 <span className="text-green-300 text-xs">Volontari per l'Ambiente</span>

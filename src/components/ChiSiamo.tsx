@@ -5,10 +5,11 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const CIRC = 100;
 
 const chartData = [
-  { label: 'Interventi di salvataggio cani e gatti',      value: 60, color: '#4ade80' },
-  { label: 'Segnalazioni PEC alle autorità competenti',   value: 22, color: '#60a5fa' },
-  { label: 'Raccolte fondi',                              value: 13, color: '#fb923c' },
-  { label: 'Altri oneri',                                 value: 5,  color: '#fbbf24' },
+  { label: 'Interventi di salvataggio',      value: 55, color: '#4ade80' },
+  { label: 'Segnalazioni PEC alle autorità competenti',   value: 20, color: '#60a5fa' },
+  { label: 'Raccolte fondi',                              value: 12, color: '#fb923c' },
+  { label: 'Formazione nelle scuole',                     value: 8,  color: '#a78bfa' },
+  { label: 'Altre attività',                              value: 5,  color: '#fbbf24' },
 ];
 
 const quotes = [
@@ -131,24 +132,14 @@ export default function ChiSiamo() {
               Volontari per l'Ambiente ODV
               <span className="block text-green-700 text-xl sm:text-2xl font-semibold mt-1">Delegazione Regione Campania</span>
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-lg leading-relaxed mb-4">
               Ci occupiamo della tutela degli animali allo scopo di difendere, proteggere e valorizzare
               l'ambiente del territorio Salernitano.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#contatti"
-                className="bg-green-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-600 transition-colors text-sm"
-              >
-                Unisciti a noi
-              </a>
-              <a
-                href="#storie"
-                className="border-2 border-green-700 text-green-700 px-6 py-2.5 rounded-full font-semibold hover:bg-green-50 transition-colors text-sm"
-              >
-                Le nostre storie
-              </a>
-            </div>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              I nostri volontari stanno organizzando percorsi di formazione nelle scuole per sensibilizzare
+              le nuove generazioni al rispetto degli animali e della natura.
+            </p>
           </div>
 
           {/* Right: Donut Chart — deep forest green card */}
@@ -158,7 +149,7 @@ export default function ChiSiamo() {
             style={{ backgroundColor: '#0d2118' }}
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-6 text-white">
-              Come usiamo i fondi raccolti
+              Le nostre attività
             </h3>
 
             <div className="flex flex-col sm:flex-row items-center gap-8">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Leaf, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 // Ordered to match page scroll flow
 const NAV_LINKS = [
@@ -61,9 +61,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group flex-shrink-0" onClick={closeMenu}>
-            <div className="w-9 h-9 bg-green-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors">
-              <Leaf size={20} className="text-white" />
-            </div>
+            <img src="/logo.svg" alt="VOLA logo" className="w-14 h-14 object-contain" />
             <div className="leading-tight">
               <span className="font-bold text-green-800 text-lg block leading-none">VOLA</span>
               <span className="text-xs text-green-600 font-medium">Salerno</span>

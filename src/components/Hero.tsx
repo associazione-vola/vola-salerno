@@ -1,32 +1,12 @@
 import { ArrowDown, X, Heart } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const PRESET_AMOUNTS = [5, 10, 25, 50];
 const IBAN = 'IT74 E062 3015 2000 0003 1403 747';
 
-// Placeholder — sostituire con foto portrait reale dell'associazione
-const IMG_PORTRAIT =
-  'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1080&h=1920&q=95&auto=format&fit=crop';
-const IMG_LANDSCAPE =
-  'https://images.unsplash.com/photo-1728065015087-b1fbb15e5480?w=2560&q=95&auto=format&fit=crop';
+const IMG_PORTRAIT = '/mobile_hero.webp';
+const IMG_LANDSCAPE = '/hero.webp';
 
-interface FormProps {
-  amount: number | '';
-  setAmount: (a: number | '') => void;
-  customAmount: string;
-  setCustomAmount: (v: string) => void;
-  showIban: boolean;
-  copied: boolean;
-  finalAmount: number | '';
-  onDonate: () => void;
-}
-
-function DonationForm({
-  amount, setAmount,
-  customAmount, setCustomAmount,
-  showIban, copied,
-  finalAmount, onDonate,
-}: FormProps) {
+function DonationForm({ copied, onCopy }: { copied: boolean; onCopy: () => void }) {
   return (
     <>
       <p className="text-white/60 text-xs font-semibold tracking-widest uppercase mb-1">Sostienici</p>
@@ -34,57 +14,22 @@ function DonationForm({
         Ogni donazione<br />salva una vita
       </h2>
 
-      <p className="text-white/60 text-xs mb-2">Scegli un importo</p>
-      <div className="grid grid-cols-4 gap-2 mb-3">
-        {PRESET_AMOUNTS.map((a) => (
-          <button
-            key={a}
-            onClick={() => { setAmount(a); setCustomAmount(''); }}
-            className={`py-2 rounded-lg text-sm font-bold transition-all ${
-              amount === a && customAmount === ''
-                ? 'bg-green-500 text-white'
-                : 'text-white/70 hover:text-white'
-            }`}
-            style={amount === a && customAmount === '' ? {} : { background: 'rgba(255,255,255,0.10)' }}
-          >
-            €{a}
-          </button>
-        ))}
+      <div
+        className="rounded-xl p-4 mb-4 text-sm"
+        style={{ background: 'rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.15)' }}
+      >
+        <p className="text-white/60 text-xs mb-1">Bonifico bancario</p>
+        <p className="text-white font-mono font-bold text-xs break-all">{IBAN}</p>
+        <p className="text-white/60 text-xs mt-2">Intestatario: VOLA – Volontari per l'Ambiente</p>
+        <p className="text-white/60 text-xs mt-1">Causale: Donazione VOLA</p>
       </div>
-
-      <div className="relative mb-5">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 text-sm">€</span>
-        <input
-          type="number"
-          min="1"
-          placeholder="Altro importo"
-          value={customAmount}
-          onChange={(e) => { setCustomAmount(e.target.value); setAmount(''); }}
-          className="w-full pl-7 pr-3 py-2.5 rounded-lg text-sm text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-white/40"
-          style={{ background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.15)' }}
-        />
-      </div>
-
-      {showIban ? (
-        <div
-          className="rounded-xl p-4 mb-4 text-sm"
-          style={{ background: 'rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.15)' }}
-        >
-          <p className="text-white/60 text-xs mb-1">IBAN</p>
-          <p className="text-white font-mono font-bold text-xs break-all">{IBAN}</p>
-          <p className="text-white/60 text-xs mt-2">Intestatario: VOLA – Volontari per l'Ambiente</p>
-          {finalAmount ? (
-            <p className="text-white/60 text-xs mt-1">Causale: Donazione VOLA €{finalAmount}</p>
-          ) : null}
-        </div>
-      ) : null}
 
       <button
-        onClick={onDonate}
+        onClick={onCopy}
         className="w-full py-3 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 active:translate-y-0"
         style={{ background: copied ? 'rgba(34,197,94,1)' : 'rgba(34,197,94,0.85)', color: '#fff', boxShadow: '0 4px 16px rgba(34,197,94,0.30)' }}
       >
-        {copied ? 'IBAN copiato ✓' : showIban ? 'Copia IBAN' : 'Mostra IBAN'}
+        {copied ? 'IBAN copiato ✓' : 'Copia IBAN'}
       </button>
 
       <p className="text-white/40 text-xs text-center mt-3">
@@ -95,9 +40,6 @@ function DonationForm({
 }
 
 export default function Hero() {
-  const [amount, setAmount] = useState<number | ''>(10);
-  const [customAmount, setCustomAmount] = useState('');
-  const [showIban, setShowIban] = useState(false);
   const [copied, setCopied] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -108,25 +50,11 @@ export default function Hero() {
     return () => window.removeEventListener('keydown', onKey);
   }, [modalOpen]);
 
-  const finalAmount = customAmount !== '' ? Number(customAmount) : amount;
-
-  const handleDonate = () => {
-    if (!showIban) {
-      setShowIban(true);
-    } else {
-      navigator.clipboard.writeText(IBAN).then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      });
-    }
-  };
-
-  const formProps: FormProps = {
-    amount, setAmount,
-    customAmount, setCustomAmount,
-    showIban, copied,
-    finalAmount,
-    onDonate: handleDonate,
+  const handleCopy = () => {
+    navigator.clipboard.writeText(IBAN).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   return (
@@ -139,13 +67,13 @@ export default function Hero() {
         <img
           src={IMG_LANDSCAPE}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.4] origin-[center_68%] lg:scale-100 lg:origin-center lg:object-[center_10%]"
           aria-hidden="true"
         />
       </picture>
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(to bottom, rgba(5,15,8,0.3) 0%, rgba(5,20,10,0.85) 100%)' }}
+        style={{ background: 'linear-gradient(to bottom, rgba(5,15,8,0.2) 0%, rgba(5,20,10,0.45) 50%, rgba(5,20,10,0.80) 100%)' }}
       />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-12 lg:py-24 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
@@ -200,7 +128,7 @@ export default function Hero() {
             boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
           }}
         >
-          <DonationForm {...formProps} />
+          <DonationForm copied={copied} onCopy={handleCopy} />
         </div>
       </div>
 
@@ -235,7 +163,7 @@ export default function Hero() {
                   boxShadow: '0 8px 32px rgba(0,0,0,0.30)',
                 }}
               >
-                <DonationForm {...formProps} />
+                <DonationForm copied={copied} onCopy={handleCopy} />
               </div>
             </div>
           </div>

@@ -1,11 +1,5 @@
 import { InstagramIcon as Instagram } from './SocialIcons';
 
-const features = [
-  '200+ adozioni riuscite',
-  'Aggiornamenti quotidiani',
-  'Community attiva',
-];
-
 export default function AdozioniPermanenti() {
   return (
     <section
@@ -30,7 +24,7 @@ export default function AdozioniPermanenti() {
         <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-5 leading-tight">
           Chi cerca casa
           <span
-            className="block"
+            className="block pb-2"
             style={{
               background: 'linear-gradient(90deg, #f97316 0%, #ec4899 100%)',
               WebkitBackgroundClip: 'text',
@@ -46,23 +40,6 @@ export default function AdozioniPermanenti() {
           Aggiorniamo le nostre adozioni quotidianamente su Instagram. Unisciti alla nostra
           community per scoprire i cuccioli che hanno bisogno di te.
         </p>
-
-        {/* Feature pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {features.map((feat) => (
-            <span
-              key={feat}
-              className="px-4 py-2 rounded-full text-sm font-medium text-gray-700"
-              style={{
-                background: 'rgba(255,255,255,0.75)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(0,0,0,0.07)',
-              }}
-            >
-              {feat}
-            </span>
-          ))}
-        </div>
 
         {/* CTA */}
         <a
