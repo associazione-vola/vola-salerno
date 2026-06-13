@@ -1,9 +1,9 @@
-const CF_PLACEHOLDER = '95199730656';
+const CODICE_FISCALE = '95199730656';
 
 const steps = [
   { n: '1', text: 'Fai la dichiarazione dei redditi (730, Unico o CU)' },
   { n: '2', text: 'Firma nel riquadro "Sostegno del Terzo Settore"' },
-  { n: '3', text: `Scrivi il nostro codice fiscale: ${CF_PLACEHOLDER}` },
+  { n: '3', text: `Scrivi il nostro codice fiscale: ${CODICE_FISCALE}` },
 ];
 
 export default function CinquePerMille() {
@@ -57,7 +57,7 @@ export default function CinquePerMille() {
               Codice fiscale
             </p>
             <p className="text-white font-mono font-black text-2xl sm:text-3xl tracking-widest">
-              {CF_PLACEHOLDER}
+              {CODICE_FISCALE}
             </p>
           </div>
         </div>

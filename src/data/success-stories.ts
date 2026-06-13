@@ -40,7 +40,7 @@ export const successStories: SuccessStory[] = [
     // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
-    id: 13,
+    id: 4,
     name: 'Ciro e Ugo',
     gender: 'M',
     character: 'Caos e coccole in coppia',
@@ -50,7 +50,7 @@ export const successStories: SuccessStory[] = [
     // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
-    id: 12,
+    id: 5,
     name: 'Giogiò',
     gender: 'M',
     character: 'Sorriso sdentato, cuore intero',
@@ -60,7 +60,7 @@ export const successStories: SuccessStory[] = [
     // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
-    id: 11,
+    id: 6,
     name: 'Arturo',
     gender: 'M',
     character: 'Dipendente dalle coccole',
