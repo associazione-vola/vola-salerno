@@ -76,7 +76,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] bg-[#05140a] flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen bg-[#05140a] flex items-center justify-center overflow-hidden"
+      style={{ minHeight: '100dvh' }}
     >
       <picture>
         <source media="(max-width: 1023px)" srcSet={IMG_PORTRAIT} />
