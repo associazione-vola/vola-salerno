@@ -1,4 +1,4 @@
-import { Clock } from 'lucide-react';
+import { Clock, Phone } from 'lucide-react';
 
 export default function EmergenciesHub() {
   return (
@@ -41,6 +41,37 @@ export default function EmergenciesHub() {
                   </li>
                 ))}
               </ol>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-6">
+          <div className="w-full max-w-xl">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-blue-400">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone size={20} className="text-blue-600" />
+                </div>
+                <h3 className="font-black text-gray-900 text-lg">Numeri utili</h3>
+              </div>
+              <div className="space-y-3">
+                <a
+                  href="tel:113"
+                  className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-blue-50 transition-colors group"
+                >
+                  <span className="text-gray-700 text-sm font-medium">Polizia di Stato</span>
+                  <span className="text-blue-600 font-black text-lg group-hover:text-blue-700 transition-colors">113</span>
+                </a>
+                <a
+                  href="https://www.aslsalerno.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-blue-50 transition-colors group"
+                >
+                  <span className="text-gray-700 text-sm font-medium">ASL Salerno – Servizio Veterinario</span>
+                  <span className="text-blue-600 text-sm font-semibold group-hover:text-blue-700 transition-colors">Trova contatto →</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
