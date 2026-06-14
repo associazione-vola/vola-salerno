@@ -33,7 +33,7 @@ export default function Contatti() {
                   <MapPin size={18} className="text-green-700" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Sede operativa</p>
+                  <p className="font-semibold text-gray-900">Sede legale</p>
                   <p className="text-gray-600 text-sm mt-1">Via Salvador Allende, 161 A – Salerno</p>
                 </div>
               </div>
