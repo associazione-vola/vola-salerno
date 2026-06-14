@@ -309,16 +309,26 @@ export default function ChiSiamo() {
                   onClick={() => changeQuote(idx)}
                   aria-label={`Vai alla citazione ${idx + 1}`}
                   style={{
+                    minWidth: '24px',
+                    minHeight: '24px',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 0,
+                  }}
+                >
+                  <span style={{
                     width: currentQuote === idx ? '28px' : '10px',
                     height: '10px',
                     borderRadius: '5px',
                     backgroundColor: currentQuote === idx ? '#15803d' : '#bbf7d0',
-                    border: 'none',
-                    cursor: 'pointer',
                     transition: 'width 0.3s ease, background-color 0.3s ease',
-                    padding: 0,
-                  }}
-                />
+                    display: 'block',
+                  }} />
+                </button>
               ))}
             </div>
 

@@ -79,7 +79,7 @@ export default function CinquePerMille() {
           ))}
         </div>
 
-        <p className="text-center text-white/30 text-xs mt-12">
+        <p className="text-center text-white/60 text-xs mt-12">
           Il 5×1000 non sostituisce l'IRPEF — è una quota già trattenuta dallo Stato che puoi scegliere dove destinare.
         </p>
       </div>

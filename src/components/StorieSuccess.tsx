@@ -49,7 +49,7 @@ function StoryCard({ story }: { story: SuccessStory }) {
               href={story.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-pink-500 hover:text-pink-600 font-semibold text-sm transition-colors"
+              className="flex items-center gap-1 text-pink-700 hover:text-pink-800 font-semibold text-sm transition-colors"
             >
               Vedi su Instagram
               <ExternalLink size={13} />

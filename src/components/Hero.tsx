@@ -108,7 +108,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
             <a
               href="#adozioni"
-              className="bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+              className="bg-green-600 hover:bg-green-600 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
             >
               Adotta un amico
             </a>
@@ -121,7 +121,7 @@ export default function Hero() {
             {/* Dona Ora — solo mobile */}
             <button
               onClick={() => setModalOpen(true)}
-              className="lg:hidden flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+              className="lg:hidden flex items-center justify-center gap-2 bg-green-600 hover:bg-green-600 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
             >
               <Heart size={16} fill="currentColor" />
               Dona Ora
