@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# VOLA – Volontari per l'Ambiente ODV
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sito ufficiale dell'associazione **VOLA – Volontari per l'Ambiente ODV**, Delegazione Regione Campania. L'associazione si occupa della tutela degli animali e della difesa dell'ambiente nel territorio salernitano.
 
-Currently, two official plugins are available:
+## Cos'è questo sito
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Una pagina web che racconta chi siamo, cosa facciamo e come aiutarci. Chiunque voglia adottare un animale, segnalare un'emergenza, fare una donazione o semplicemente conoscerci troverà qui tutte le informazioni.
 
-## React Compiler
+Il sito è pubblico, gratuito e non raccoglie dati personali.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Stack Tecnologico
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** + **TypeScript 6** — struttura e logica dell'interfaccia
+- **Vite 8** — build e sviluppo locale
+- **Tailwind CSS 4** — stile e layout
+- **Lucide React** — icone
+- **Vercel** — deploy e hosting
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Struttura
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  components/
+    Navbar.tsx          # barra di navigazione
+    Hero.tsx            # sezione iniziale
+    CinquePerMille.tsx  # info 5x1000
+    ChiSiamo.tsx        # missione + grafico fondi + citazioni
+    StorieSuccess.tsx   # galleria storie di adozione
+    InCercaDiCasa.tsx   # animali da adottare
+    EmergenciesHub.tsx  # guida emergenze
+    Contatti.tsx        # contatti e sede legale
+    Footer.tsx
+    SocialIcons.tsx
+  data/
+    success-stories.ts  # dati tipizzati delle storie di successo
+public/
+  animali/              # foto animali (WebP, ottimizzate < 150 KB)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Avvio locale
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Branch
+
+| Branch | Scopo |
+|--------|-------|
+| `main` | produzione — deployato automaticamente su Vercel |
+| `dev`  | sviluppo — genera una preview URL su Vercel ad ogni push |
+
+### Aggiungere una storia di successo
+
+1. Ottimizzare la foto con [Squoosh](https://squoosh.app) → WebP, qualità 75–80%, larghezza max 800px, target < 150 KB
+2. Salvare il file in `public/animali/nome-animale.webp`
+3. Aggiungere la storia in `src/data/success-stories.ts` seguendo l'interfaccia `SuccessStory`
