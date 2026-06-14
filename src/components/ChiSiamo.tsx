@@ -54,7 +54,7 @@ export default function ChiSiamo() {
   const isAnimating = useRef(false);
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
-  const donutRectRef = useRef<DOMRect | null>(null);
+
 
   // Trigger donut + bar animations when chart scrolls into view
   useEffect(() => {
@@ -71,22 +71,11 @@ export default function ChiSiamo() {
     return () => observer.disconnect();
   }, []);
 
-  // Cache donut rect — recompute only on resize, not on every mousemove
-  useEffect(() => {
-    const div = donutRef.current;
-    if (!div) return;
-    donutRectRef.current = div.getBoundingClientRect();
-    const ro = new ResizeObserver(() => {
-      donutRectRef.current = div.getBoundingClientRect();
-    });
-    ro.observe(div);
-    return () => ro.disconnect();
-  }, []);
-
   // Angle-based hover detection: maps mouse position to a donut segment
   const handleDonutMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = donutRectRef.current;
-    if (!rect) return;
+    const div = donutRef.current;
+    if (!div) return;
+    const rect = div.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
     const dx = e.clientX - cx;
