@@ -1,7 +1,7 @@
 export interface SuccessStory {
   id: number;
   name: string;
-  gender: 'M' | 'F';
+  gender: 'M' | 'F' | 'P';
   character: string;
   image: string;
   story: string;
@@ -42,7 +42,7 @@ export const successStories: SuccessStory[] = [
   {
     id: 13,
     name: 'Ciro e Ugo',
-    gender: 'M',
+    gender: 'P',
     character: 'Caos e coccole in coppia',
     image: '/animali/ugo_ciro.webp',
     story:

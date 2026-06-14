@@ -54,6 +54,18 @@ export default function Hero() {
     navigator.clipboard.writeText(IBAN).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {
+      // Fallback per HTTP o browser senza permessi clipboard
+      const el = document.createElement('textarea');
+      el.value = IBAN;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     });
   };
 

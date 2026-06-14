@@ -35,6 +35,11 @@ const quotes = [
   },
 ];
 
+if (import.meta.env.DEV) {
+  const sum = chartData.reduce((s, d) => s + d.value, 0);
+  if (sum !== 100) throw new Error(`chartData deve sommare a 100, trovato ${sum}`);
+}
+
 // Precompute each segment's start offset (negative = clockwise shift)
 const segments = chartData.map((item, i) => ({
   ...item,
@@ -49,6 +54,7 @@ export default function ChiSiamo() {
   const isAnimating = useRef(false);
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
+  const donutRectRef = useRef<DOMRect | null>(null);
 
   // Trigger donut + bar animations when chart scrolls into view
   useEffect(() => {
@@ -65,11 +71,22 @@ export default function ChiSiamo() {
     return () => observer.disconnect();
   }, []);
 
-  // Angle-based hover detection: maps mouse position to a donut segment
-  const handleDonutMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  // Cache donut rect — recompute only on resize, not on every mousemove
+  useEffect(() => {
     const div = donutRef.current;
     if (!div) return;
-    const rect = div.getBoundingClientRect();
+    donutRectRef.current = div.getBoundingClientRect();
+    const ro = new ResizeObserver(() => {
+      donutRectRef.current = div.getBoundingClientRect();
+    });
+    ro.observe(div);
+    return () => ro.disconnect();
+  }, []);
+
+  // Angle-based hover detection: maps mouse position to a donut segment
+  const handleDonutMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = donutRectRef.current;
+    if (!rect) return;
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
     const dx = e.clientX - cx;
@@ -81,7 +98,7 @@ export default function ChiSiamo() {
     const outerR = (15.9155 + 3.8) * scale;
     const innerR = (15.9155 - 3.8) * scale;
     if (dist < innerR || dist > outerR) {
-      setHoveredSegment(null);
+      if (hoveredSegment !== null) setHoveredSegment(null);
       return;
     }
 
@@ -99,7 +116,7 @@ export default function ChiSiamo() {
         return;
       }
     }
-    setHoveredSegment(null);
+    if (hoveredSegment !== null) setHoveredSegment(null);
   };
 
   const changeQuote = (newIdx: number) => {

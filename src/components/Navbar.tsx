@@ -32,7 +32,7 @@ export default function Navbar() {
           break;
         }
       }
-      setActiveId(found);
+      setActiveId(prev => (prev === found ? prev : found));
     };
 
     const onScroll = () => {
