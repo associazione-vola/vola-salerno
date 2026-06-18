@@ -32,12 +32,13 @@ export default function Navbar() {
           break;
         }
       }
-      setActiveId(prev => (prev === found ? prev : found));
+      setActiveId(found);
     };
 
+    let rafId = 0;
     const onScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        rafId = requestAnimationFrame(() => {
           update();
           ticking = false;
         });
@@ -47,7 +48,10 @@ export default function Navbar() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     update();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const closeMenu = () => setOpen(false);
@@ -115,7 +119,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-white bg-green-600 hover:bg-green-600 transition-colors shadow-sm"
+            className="md:hidden p-2 rounded-lg text-white bg-green-600 hover:bg-green-500 transition-colors shadow-sm"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Chiudi menu' : 'Apri menu'}
             aria-expanded={open}
