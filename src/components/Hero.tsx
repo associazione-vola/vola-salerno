@@ -50,22 +50,24 @@ export default function Hero() {
     return () => window.removeEventListener('keydown', onKey);
   }, [modalOpen]);
 
+  const flash = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const handleCopy = () => {
-    navigator.clipboard.writeText(IBAN).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }).catch(() => {
-      // Fallback per HTTP o browser senza permessi clipboard
+    navigator.clipboard.writeText(IBAN).then(flash).catch(() => {
       const el = document.createElement('textarea');
       el.value = IBAN;
       el.style.position = 'fixed';
       el.style.opacity = '0';
       document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      try {
+        el.select();
+        if (document.execCommand('copy')) flash();
+      } finally {
+        document.body.removeChild(el);
+      }
     });
   };
 
@@ -108,7 +110,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
             <a
               href="#adozioni"
-              className="bg-green-600 hover:bg-green-600 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+              className="bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
             >
               Adotta un amico
             </a>
@@ -121,7 +123,7 @@ export default function Hero() {
             {/* Dona Ora — solo mobile */}
             <button
               onClick={() => setModalOpen(true)}
-              className="lg:hidden flex items-center justify-center gap-2 bg-green-600 hover:bg-green-600 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
+              className="lg:hidden flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-7 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-0.5 text-sm"
             >
               <Heart size={16} fill="currentColor" />
               Dona Ora
