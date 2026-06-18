@@ -35,11 +35,6 @@ const quotes = [
   },
 ];
 
-if (import.meta.env.DEV) {
-  const sum = chartData.reduce((s, d) => s + d.value, 0);
-  if (sum !== 100) throw new Error(`chartData deve sommare a 100, trovato ${sum}`);
-}
-
 // Precompute each segment's start offset (negative = clockwise shift)
 const segments = chartData.map((item, i) => ({
   ...item,
@@ -52,6 +47,14 @@ export default function ChiSiamo() {
   const [chartVisible, setChartVisible] = useState(false);
   const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
   const isAnimating = useRef(false);
+
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      const sum = chartData.reduce((s, d) => s + d.value, 0);
+      if (sum !== 100) console.error(`[ChiSiamo] chartData deve sommare a 100, trovato ${sum}`);
+    }
+  }, []);
+
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +90,7 @@ export default function ChiSiamo() {
     const outerR = (15.9155 + 3.8) * scale;
     const innerR = (15.9155 - 3.8) * scale;
     if (dist < innerR || dist > outerR) {
-      if (hoveredSegment !== null) setHoveredSegment(null);
+      setHoveredSegment(prev => prev !== null ? null : prev);
       return;
     }
 
@@ -105,7 +108,7 @@ export default function ChiSiamo() {
         return;
       }
     }
-    if (hoveredSegment !== null) setHoveredSegment(null);
+    setHoveredSegment(prev => prev !== null ? null : prev);
   };
 
   const changeQuote = (newIdx: number) => {
