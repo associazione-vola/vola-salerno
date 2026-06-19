@@ -50,27 +50,25 @@ export default function Hero() {
     return () => window.removeEventListener('keydown', onKey);
   }, [modalOpen]);
 
-  const handleCopy = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(IBAN)
-        .then(() => { setCopied(true); setTimeout(() => setCopied(false), 2000); })
-        .catch(() => fallbackCopy());
-    } else {
-      fallbackCopy();
-    }
-  };
-
-  const fallbackCopy = () => {
-    const el = document.createElement('textarea');
-    el.value = IBAN;
-    el.style.position = 'fixed';
-    el.style.opacity = '0';
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+  const flash = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(IBAN).then(flash).catch(() => {
+      const el = document.createElement('textarea');
+      el.value = IBAN;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      try {
+        el.select();
+        if (document.execCommand('copy')) flash();
+      } finally {
+        document.body.removeChild(el);
+      }
+    });
   };
 
   return (

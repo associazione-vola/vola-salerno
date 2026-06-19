@@ -47,8 +47,17 @@ export default function ChiSiamo() {
   const [chartVisible, setChartVisible] = useState(false);
   const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
   const isAnimating = useRef(false);
+
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      const sum = chartData.reduce((s, d) => s + d.value, 0);
+      if (sum !== 100) console.error(`[ChiSiamo] chartData deve sommare a 100, trovato ${sum}`);
+    }
+  }, []);
+
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
+
 
   // Trigger donut + bar animations when chart scrolls into view
   useEffect(() => {
@@ -81,7 +90,7 @@ export default function ChiSiamo() {
     const outerR = (15.9155 + 3.8) * scale;
     const innerR = (15.9155 - 3.8) * scale;
     if (dist < innerR || dist > outerR) {
-      setHoveredSegment(null);
+      setHoveredSegment(prev => prev !== null ? null : prev);
       return;
     }
 
@@ -99,7 +108,7 @@ export default function ChiSiamo() {
         return;
       }
     }
-    setHoveredSegment(null);
+    setHoveredSegment(prev => prev !== null ? null : prev);
   };
 
   const changeQuote = (newIdx: number) => {
@@ -303,16 +312,26 @@ export default function ChiSiamo() {
                   onClick={() => changeQuote(idx)}
                   aria-label={`Vai alla citazione ${idx + 1}`}
                   style={{
+                    minWidth: '24px',
+                    minHeight: '24px',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 0,
+                  }}
+                >
+                  <span style={{
                     width: currentQuote === idx ? '28px' : '10px',
                     height: '10px',
                     borderRadius: '5px',
                     backgroundColor: currentQuote === idx ? '#15803d' : '#bbf7d0',
-                    border: 'none',
-                    cursor: 'pointer',
                     transition: 'width 0.3s ease, background-color 0.3s ease',
-                    padding: 0,
-                  }}
-                />
+                    display: 'block',
+                  }} />
+                </button>
               ))}
             </div>
 

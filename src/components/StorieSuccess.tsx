@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Heart, Quote, ChevronDown, ExternalLink } from 'lucide-react';
 import { successStories, type SuccessStory } from '../data/success-stories';
 
@@ -22,7 +22,7 @@ function StoryCard({ story }: { story: SuccessStory }) {
         </div>
         <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
           <Heart size={10} fill="currentColor" />
-          {story.gender === 'F' ? 'Adottata' : 'Adottato'}
+          {story.gender === 'F' ? 'Adottata' : story.gender === 'P' ? 'Adottati' : 'Adottato'}
         </div>
       </div>
 
@@ -49,7 +49,7 @@ function StoryCard({ story }: { story: SuccessStory }) {
               href={story.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-pink-500 hover:text-pink-600 font-semibold text-sm transition-colors"
+              className="flex items-center gap-1 text-pink-700 hover:text-pink-800 font-semibold text-sm transition-colors"
             >
               Vedi su Instagram
               <ExternalLink size={13} />
@@ -62,14 +62,14 @@ function StoryCard({ story }: { story: SuccessStory }) {
 }
 
 export default function StorieSuccess() {
-  const shuffled = useMemo(() => {
+  const [shuffled] = useState(() => {
     const arr = [...successStories];
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
-  }, []);
+  });
 
   return (
     <section id="storie" className="py-24 bg-white relative overflow-hidden">
