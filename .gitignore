@@ -28,13 +28,4 @@ dist-ssr
 .env.local
 .env.*.local
 
-# Claude
-.claude/
-CLAUDE.md
-docs/
-
-# Playwright test artifacts
-.playwright-mcp/
-
-docs/*
 quotes_data/*
