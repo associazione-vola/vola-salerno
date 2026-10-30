@@ -6,7 +6,7 @@ Sito ufficiale dell'associazione **VOLA – Volontari per l'Ambiente ODV**, Dele
 
 Una pagina web che racconta chi siamo, cosa facciamo e come aiutarci. Chiunque voglia adottare un animale, segnalare un'emergenza, fare una donazione o semplicemente conoscerci troverà qui tutte le informazioni.
 
-Il sito è pubblico, gratuito e non raccoglie dati personali.
+Il sito è pubblico, gratuito, senza cookie e senza moduli di raccolta dati. L'unico trattamento è quello tecnico dell'hosting (vedi [public/privacy.html](public/privacy.html)).
 
 ---
 

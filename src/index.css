@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Tangerine (SIL OFL), ospitato in locale per non inviare l'IP dei visitatori a Google */
+@font-face {
+  font-family: 'Tangerine';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/tangerine-700.woff2') format('woff2');
+}
+
 :root {
   color-scheme: light;
 }

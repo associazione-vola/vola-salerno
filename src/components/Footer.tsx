@@ -93,7 +93,13 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row gap-3 items-center justify-between text-green-400 text-sm">
           <p>© {year} VOLA – Volontari per l'Ambiente. Tutti i diritti riservati.</p>
-          <p>Fatto con ❤️ a Salerno</p>
+          <p>
+            <a href="/privacy.html" className="hover:text-white transition-colors underline underline-offset-2">
+              Informativa privacy
+            </a>
+            <span className="mx-2" aria-hidden="true">·</span>
+            Fatto con ❤️ a Salerno
+          </p>
         </div>
       </div>
     </footer>

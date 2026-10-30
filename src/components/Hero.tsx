@@ -33,7 +33,7 @@ function DonationForm({ copied, onCopy }: { copied: boolean; onCopy: () => void 
       </button>
 
       <p className="text-white/40 text-xs text-center mt-3">
-        Donazione sicura · Associazione ETS
+        Donazione sicura · Associazione ODV
       </p>
     </>
   );
