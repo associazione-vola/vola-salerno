@@ -80,24 +80,16 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="relative px-3 py-2 rounded-lg font-medium text-sm transition-colors duration-150 group"
-                  style={{ color: isActive ? '#15803d' : '#4b5563' }}
+                  className={`relative px-3 py-2 rounded-lg font-medium text-sm transition-colors duration-150 group ${
+                    isActive ? 'text-green-700 bg-green-700/[0.07]' : 'text-gray-600 hover:text-green-700 hover:bg-green-700/[0.05]'
+                  }`}
                 >
-                  {/* Subtle bg pill on active */}
-                  {isActive && (
-                    <span
-                      className="absolute inset-0 rounded-lg"
-                      style={{ backgroundColor: 'rgba(21,128,61,0.07)' }}
-                    />
-                  )}
-                  <span className="relative">{link.label}</span>
-                  {/* Animated underline */}
+                  {link.label}
+                  {/* Animated underline: pieno se attiva, appare al passaggio del mouse */}
                   <span
-                    className="absolute bottom-1 left-3 right-3 h-0.5 bg-green-600 rounded-full transition-all duration-300 origin-left"
-                    style={{
-                      transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
-                      opacity: isActive ? 1 : 0,
-                    }}
+                    className={`absolute bottom-1 left-3 right-3 h-0.5 bg-green-600 rounded-full transition-all duration-300 origin-left motion-reduce:transition-none ${
+                      isActive ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
+                    }`}
                   />
                 </a>
               );
