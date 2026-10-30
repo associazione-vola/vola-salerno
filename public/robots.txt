@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vola-salerno.vercel.app/sitemap.xml
+Sitemap: https://vola-salerno.org/sitemap.xml

@@ -267,6 +267,10 @@ export default function ChiSiamo() {
                 })}
               </div>
             </div>
+
+            <p className="mt-5 text-center text-[10px] italic leading-relaxed text-white/40">
+              *Percentuali indicative, stimate dall'associazione.
+            </p>
           </div>
         </div>
 
