@@ -81,6 +81,7 @@ export default function Hero() {
         <source media="(max-width: 1023px)" srcSet={IMG_PORTRAIT} />
         <img
           src={IMG_LANDSCAPE}
+          fetchPriority="high"
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center scale-[1.4] origin-[center_68%] lg:scale-100 lg:origin-center lg:object-[center_10%]"
           aria-hidden="true"
