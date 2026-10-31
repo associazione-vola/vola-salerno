@@ -28,7 +28,7 @@ src/
     CinquePerMille.tsx  # info 5x1000
     ChiSiamo.tsx        # missione + grafico fondi + citazioni
     StorieSuccess.tsx   # galleria storie di adozione
-    InCercaDiCasa.tsx   # animali da adottare
+    AdozioniERaccolte.tsx # adozioni (Instagram) e raccolte fondi (GoFundMe)
     EmergenciesHub.tsx  # guida emergenze
     Contatti.tsx        # contatti e sede legale
     Footer.tsx

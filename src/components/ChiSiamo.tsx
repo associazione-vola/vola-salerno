@@ -48,13 +48,6 @@ export default function ChiSiamo() {
   const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
   const isAnimating = useRef(false);
 
-  useEffect(() => {
-    if (import.meta.env.DEV) {
-      const sum = chartData.reduce((s, d) => s + d.value, 0);
-      if (sum !== 100) console.error(`[ChiSiamo] chartData deve sommare a 100, trovato ${sum}`);
-    }
-  }, []);
-
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
 

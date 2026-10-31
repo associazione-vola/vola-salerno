@@ -6,15 +6,15 @@ export default function Footer() {
 
   return (
     <footer className="bg-green-900 text-white relative -mt-px">
-      {/* Wave bridge: Contatti (gray-50 #f9fafb) → Footer (green-900) */}
+      {/* Wave bridge: Contatti (bianco #ffffff) → Footer (green-900) */}
       <div className="absolute top-0 left-0 right-0 leading-none pointer-events-none -translate-y-px" style={{ height: '60px' }}>
         <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
           <path d="M0,60 Q600,0 1200,60 L1200,0 L0,0 Z" fill="#ffffff" />
         </svg>
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div className="lg:col-span-2">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1.3fr] gap-10">
+          <div>
             <div className="flex items-center gap-3 mb-5">
               <img src="/logo.svg" alt="VOLA logo" className="w-12 h-12 object-contain" />
               <div>
@@ -77,7 +77,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-green-400 flex-shrink-0" />
-                <a href="mailto:associazionevola.salerno1@gmail.com" className="hover:text-white transition-colors">
+                <a href="mailto:associazionevola.salerno1@gmail.com" className="hover:text-white transition-colors break-all">
                   associazionevola.salerno1@gmail.com
                 </a>
               </li>

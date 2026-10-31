@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import CinquePerMille from './components/CinquePerMille';
 import ChiSiamo from './components/ChiSiamo';
 import StorieSuccess from './components/StorieSuccess';
-import InCercaDiCasa from './components/InCercaDiCasa';
+import AdozioniERaccolte from './components/AdozioniERaccolte';
 import EmergenciesHub from './components/EmergenciesHub';
 import Contatti from './components/Contatti';
 import Footer from './components/Footer';
@@ -31,7 +31,7 @@ function App() {
         <GreenDivider />
         <StorieSuccess />
         <GreenDivider />
-        <InCercaDiCasa />
+        <AdozioniERaccolte />
         <GreenDivider />
         <EmergenciesHub />
         <GreenDivider />
