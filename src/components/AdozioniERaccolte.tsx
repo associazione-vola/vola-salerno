@@ -1,8 +1,6 @@
 import { ExternalLink, Heart } from 'lucide-react';
 import { InstagramIcon } from './SocialIcons';
-
-const INSTAGRAM_URL = 'https://www.instagram.com/vola_volontariambiente?igsh=MW5uNWNkdnd6cHVkYg==';
-const GOFUNDME_URL = 'https://www.gofundme.com/u/91b48491-f950-4077-a51a-f85b0a2a0883';
+import { GOFUNDME_URL, INSTAGRAM_SHARE_URL } from '../data/contact';
 
 // Due azioni affiancate: trovare casa a un animale (Instagram) e sostenere le raccolte fondi (GoFundMe)
 export default function AdozioniERaccolte() {
@@ -43,7 +41,7 @@ export default function AdozioniERaccolte() {
           </p>
 
           <a
-            href={INSTAGRAM_URL}
+            href={INSTAGRAM_SHARE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-auto inline-flex items-center justify-center gap-2 sm:gap-3 text-white px-5 sm:px-8 py-4 rounded-full font-bold text-sm sm:text-lg shadow-[0_4px_24px_rgba(249,115,22,0.30)] hover:shadow-[0_8px_36px_rgba(249,115,22,0.45)] hover:-translate-y-1 transition-all duration-300"
