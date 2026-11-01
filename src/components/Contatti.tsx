@@ -1,5 +1,40 @@
 import { Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
+import { ADDRESS, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, PHONE, PHONE_LINK, WHATSAPP_URL } from '../data/contact';
+
+// Le tre card social differiscono solo per testi, colori e icona
+const SOCIAL_CARDS = [
+  {
+    label: 'Facebook',
+    description: 'Notizie, eventi e aggiornamenti',
+    href: FACEBOOK_URL,
+    Icon: FacebookIcon,
+    background: 'bg-blue-600 hover:bg-blue-700',
+    transition: 'transition-colors',
+    descriptionColor: 'text-blue-200',
+    arrowColor: 'text-blue-300',
+  },
+  {
+    label: 'Instagram',
+    description: 'Foto degli animali in cerca di casa',
+    href: INSTAGRAM_URL,
+    Icon: InstagramIcon,
+    background: 'bg-gradient-to-r from-pink-500 via-red-500 to-orange-400 hover:opacity-90',
+    transition: 'transition-opacity',
+    descriptionColor: 'text-pink-100',
+    arrowColor: 'text-pink-200',
+  },
+  {
+    label: 'Canale WhatsApp',
+    description: "Novità e aggiornamenti dall'associazione",
+    href: WHATSAPP_URL,
+    Icon: WhatsAppIcon,
+    background: 'bg-[#25D366] hover:bg-[#1ebe5d]',
+    transition: 'transition-colors',
+    descriptionColor: 'text-green-100',
+    arrowColor: 'text-green-200',
+  },
+];
 
 export default function Contatti() {
   return (
@@ -34,7 +69,7 @@ export default function Contatti() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Sede legale</p>
-                  <p className="text-gray-600 text-sm mt-1">Via Salvador Allende, 161 A – Salerno</p>
+                  <p className="text-gray-600 text-sm mt-1">{ADDRESS}</p>
                 </div>
               </div>
 
@@ -45,10 +80,10 @@ export default function Contatti() {
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
                   <a
-                    href="mailto:associazionevola.salerno1@gmail.com"
+                    href={`mailto:${EMAIL}`}
                     className="text-green-700 text-sm hover:underline break-all"
                   >
-                    associazionevola.salerno1@gmail.com
+                    {EMAIL}
                   </a>
                 </div>
               </div>
@@ -60,10 +95,10 @@ export default function Contatti() {
                 <div>
                   <p className="font-semibold text-gray-900">Telefono</p>
                   <a
-                    href="tel:+393514929152"
+                    href={`tel:${PHONE_LINK}`}
                     className="text-gray-600 text-sm hover:text-green-700 transition-colors"
                   >
-                    351 492 9152
+                    {PHONE}
                   </a>
                 </div>
               </div>
@@ -78,53 +113,24 @@ export default function Contatti() {
             </div>
 
             <div className="bg-white p-8 flex flex-col gap-4 flex-1">
-              <a
-                href="https://www.facebook.com/share/1aW6P36ibh/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-5 rounded-xl transition-colors group"
-              >
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <FacebookIcon size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-sm">Facebook</p>
-                  <p className="text-blue-200 text-xs mt-0.5">Notizie, eventi e aggiornamenti</p>
-                </div>
-                <ArrowUpRight size={18} className="text-blue-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-
-              <a
-                href="https://www.instagram.com/vola_volontariambiente"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-gradient-to-r from-pink-500 via-red-500 to-orange-400 hover:opacity-90 text-white px-6 py-5 rounded-xl transition-opacity group"
-              >
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <InstagramIcon size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-sm">Instagram</p>
-                  <p className="text-pink-100 text-xs mt-0.5">Foto degli animali in cerca di casa</p>
-                </div>
-                <ArrowUpRight size={18} className="text-pink-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-
-              <a
-                href="https://whatsapp.com/channel/0029VatJw7J7tkj7q2uS5N2R"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-6 py-5 rounded-xl transition-colors group"
-              >
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <WhatsAppIcon size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-sm">Canale WhatsApp</p>
-                  <p className="text-green-100 text-xs mt-0.5">Novità e aggiornamenti dall'associazione</p>
-                </div>
-                <ArrowUpRight size={18} className="text-green-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+              {SOCIAL_CARDS.map(({ label, description, href, Icon, background, transition, descriptionColor, arrowColor }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-4 ${background} text-white px-6 py-5 rounded-xl ${transition} group`}
+                >
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon size={20} />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-sm">{label}</p>
+                    <p className={`${descriptionColor} text-xs mt-0.5`}>{description}</p>
+                  </div>
+                  <ArrowUpRight size={18} className={`${arrowColor} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform`} />
+                </a>
+              ))}
 
               <div className="mt-auto pt-4 border-t border-gray-100 text-center">
                 <p className="text-gray-400 text-xs">

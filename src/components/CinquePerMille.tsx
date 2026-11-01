@@ -1,4 +1,4 @@
-const CODICE_FISCALE = '95199730656';
+import { CODICE_FISCALE } from '../data/contact';
 
 const steps = [
   { n: '1', text: 'Fai la dichiarazione dei redditi (730, Unico o CU)' },

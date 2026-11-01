@@ -1,7 +1,6 @@
 import { ArrowDown, X, Heart } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
-const IBAN = 'IT74 E062 3015 2000 0003 1403 747';
+import { IBAN } from '../data/contact';
 
 const IMG_PORTRAIT = '/mobile_hero.webp';
 const IMG_LANDSCAPE = '/hero.webp';

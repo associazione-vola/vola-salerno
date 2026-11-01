@@ -17,7 +17,6 @@ export const successStories: SuccessStory[] = [
     image: '/animali/shila.webp',
     story:
       'Shila, Bracco Tedesco di 4 anni, è un cane da caccia. Un giorno, durante una spedizione, viene investita da un furgone, che la rende paralitica. Non volendole fare l\'eutanasia, grazie all\'aiuto dei nostri volontari e a varie raccolte fondi, Shila oggi si è ripresa, con il suo carrellino che l\'aiuta a camminare, la fisioterapia, e tanto amore.',
-    // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
     id: 2,
@@ -37,7 +36,6 @@ export const successStories: SuccessStory[] = [
     image: '/animali/asia.webp',
     story:
       'Asia è stata vittima di un grave incidente che le aveva spostato gli organi nel diaframma, compromettendo la sua respirazione. Accolta da una famiglia tramite la nostra associazione, ha affrontato un delicatissimo intervento chirurgico. Grazie alle cure costanti, all\'amore incondizionato dei suoi adottanti e al legame speciale nato con Carlotta (una delle gatte di casa che le ha fatto da mamma), Asia è riuscita a superare i momenti critici, vivendo felice, amata e al sicuro.',
-    // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
     id: 4,
@@ -47,7 +45,6 @@ export const successStories: SuccessStory[] = [
     image: '/animali/ugo_ciro.webp',
     story:
       'Arrivati a 40 giorni, minuscoli e curiosi, Ciro e Ugo hanno riempito di vita una casa che aspettava solo loro. La famiglia voleva adottarne uno solo, ma quando hanno scoperto che erano rimasti in due, non ci hanno pensato due volte. Oggi corrono, esplorano, combinano guai e ricordano ogni giorno che l\'amore di un cane cresce insieme a te.',
-    // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
     id: 5,
@@ -57,7 +54,6 @@ export const successStories: SuccessStory[] = [
     image: '/animali/giogio.webp',
     story:
       'Giogiò, detto anche Giorgio, ha vagato per anni per le strade di Avellino, cercando riparo dove poteva e cibandosi di spazzatura. È stato picchiato: gli mancano due denti e porta ancora i segni di una lesione al tendine dell\'orecchio. Nonostante tutto, la fortuna ha bussato alla sua porta e Giogiò è stato accolto da una famiglia dove ha trovato fratelli per la vita.',
-    // instagramUrl: 'https://www.instagram.com/p/...',
   },
   {
     id: 6,

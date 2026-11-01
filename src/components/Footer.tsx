@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
+import { ADDRESS, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, PHONE, PHONE_LINK, WHATSAPP_URL } from '../data/contact';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -28,9 +29,9 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-6">
               {[
-                { icon: <FacebookIcon size={18} />, href: 'https://www.facebook.com/share/1aW6P36ibh/', label: 'Facebook' },
-                { icon: <InstagramIcon size={18} />, href: 'https://www.instagram.com/vola_volontariambiente', label: 'Instagram' },
-                { icon: <WhatsAppIcon size={18} />, href: 'https://whatsapp.com/channel/0029VatJw7J7tkj7q2uS5N2R', label: 'WhatsApp' },
+                { icon: <FacebookIcon size={18} />, href: FACEBOOK_URL, label: 'Facebook' },
+                { icon: <InstagramIcon size={18} />, href: INSTAGRAM_URL, label: 'Instagram' },
+                { icon: <WhatsAppIcon size={18} />, href: WHATSAPP_URL, label: 'WhatsApp' },
               ].map(({ icon, href, label }) => (
                 <a
                   key={label}
@@ -73,18 +74,18 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-green-200">
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="text-green-400 mt-0.5 flex-shrink-0" />
-                Via Salvador Allende, 161 A – Salerno
+                {ADDRESS}
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-green-400 flex-shrink-0" />
-                <a href="mailto:associazionevola.salerno1@gmail.com" className="hover:text-white transition-colors break-all">
-                  associazionevola.salerno1@gmail.com
+                <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors break-all">
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+393514929152" className="hover:text-white transition-colors">
-                  351 492 9152
+                <a href={`tel:${PHONE_LINK}`} className="hover:text-white transition-colors">
+                  {PHONE}
                 </a>
               </li>
             </ul>
