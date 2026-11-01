@@ -56,7 +56,7 @@
   <body>
     <noscript>
       <div style="max-width:42rem;margin:0 auto;padding:1.5rem;line-height:1.6">
-        <h1>VOLA – Volontari per l'Ambiente ODV, Salerno</h1>
+        <h2>VOLA – Volontari per l'Ambiente ODV, Salerno</h2>
         <p>
           Associazione di volontariato con sede a Salerno, Delegazione Regione Campania. Ci occupiamo della tutela
           degli animali allo scopo di difendere, proteggere e valorizzare l'ambiente del territorio salernitano.
@@ -84,7 +84,10 @@
         <p><a href="/privacy.html">Informativa privacy</a></p>
       </div>
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Titolo per chi legge la pagina senza eseguire JavaScript (per esempio Bing); React lo sostituisce appena parte, quindi a schermo non si vede mai -->
+      <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Associazione VOLA Salerno – Volontari per l'Ambiente ODV</h1>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

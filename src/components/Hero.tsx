@@ -100,7 +100,7 @@ export default function Hero() {
             Associazione di volontariato · Salerno
           </p>
           <h1 className="text-6xl sm:text-8xl font-black mb-2 lg:mb-4 leading-none tracking-tight">
-            VOLA
+            VOLA<span className="sr-only"> – Associazione di volontariato, Salerno</span>
           </h1>
           <p
             className="text-2xl sm:text-4xl text-white/90 mx-auto lg:mx-0 mb-8 lg:mb-10"
