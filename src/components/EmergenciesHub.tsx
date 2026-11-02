@@ -3,7 +3,7 @@ import { Clock } from 'lucide-react';
 export default function EmergenciesHub() {
   const steps: React.ReactNode[] = [
     'Non spostare l\'animale se gravemente ferito — rischio di aggravamento o morso difensivo.',
-    <>Se in strada e in pericolo di traffico, avvisa la <a href="tel:113" className="font-semibold text-orange-600 underline underline-offset-2">Polizia (113)</a>.</>,
+    <>Se in strada e in pericolo di traffico, avvisa i <a href="tel:112" className="font-semibold text-orange-600 underline underline-offset-2">Carabinieri (112)</a>.</>,
     <>Per ferite gravi, chiama subito la <a href="https://www.aslsalerno.it" target="_blank" rel="noopener noreferrer" className="font-semibold text-orange-600 underline underline-offset-2">ASL Veterinaria</a>.</>,
     'Contatta VOLA tramite i nostri social per supporto e coordinamento.',
   ];
